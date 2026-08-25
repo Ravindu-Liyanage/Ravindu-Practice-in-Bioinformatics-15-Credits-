@@ -1,15 +1,45 @@
 # Ravindu: Practice-in-Bioinformatics-(15 Credits)
 June 10-August 30
 ## Project Background
-Macrophage-dependent immune remodeling and altered lipid metabolism are closely related to cancer progression and metastasis. Aim of the project: To refine and validate a prediction/risk-score model to be used for predicting risk of cancer progression and resistance to treatment. 
+This summer project investigated FOLH1 as a context-dependent marker of prostate cancer biology. Using public transcriptomic and clinical datasets from TCGA, SU2C, and MSKCC, FOLH1 expression was compared across cancer types, normal and tumor tissues, primary and metastatic tumors, disease characteristics, and molecular biomarkers. The analysis also examined associations with disease-free survival and metastatic biopsy site.
 
-Transcriptomic and single-cell cohorts will be analyzed. Macrophage-related differentially expressed genes (MRDGs) will be extracted from GSE databases, combined with TCGA cancer genomic databases consisting of differentially expressed genes (DEGs) and lipid metabolism-related genes (LMRGs). Shared candidates will be screened through univariate Cox analysis and machine-learning procedures to obtain prognostic biomarker algorithms and build a risk-score model. Immune profiling, enrichment analysis, cell-cell communication inference, and pseudotime reconstruction will be conducted. 
+The second part focused on the relationship between FOLH1 and the prostate tumor immune microenvironment. MCP-counter scores and GSVA-derived immune pathway activity were used to investigate whether FOLH1 expression was associated with differences in inferred immune-cell populations and immune-related biological processes. Higher FOLH1 expression was associated with lower activity of several immune pathways, including T-cell activation, cytotoxicity, checkpoint signaling, complement, and inflammatory signaling.
 
-The prediction models/algorithms will have great potential to be further developed as predictive biomarkers to predict patient clinical outcome and responsiveness to immunotherapy. This will support treatment decision-making and personalized medicine.
+The third part examined PIP5K1A in pancreatic adenocarcinoma and experimental mouse tumor models. Public PAAD data were used to study associations between PIP5K1A expression, immune infiltration, and progression-free survival, while mouse RNA-seq data were processed through quality control, trimming, alignment, and feature counting in Galaxy. Principal component analysis, differential expression, pathway enrichment, biomarker correlation, and immune-cell scoring were then used to characterize transcriptional differences between PIP5K1A wild-type and knockout tumors.
+
 ## Datasets Used
 - TCGA Pan Cancer Atlas (TCGA-PRAD for prostate adenocarcnoma and TCGA-PAAD for pancreatic adenocarcinoma)
 - MSKCC2010 for prostate adenocarcinoma
+- SU2C 2019 for metastatic tumors of prostate adenocarcinoma
 - Lab produced Novogen May 2026 Mouse RAW sequences
+
+## Main Research Questions
+This project investigated whether FOLH1 and PIP5K1A act as context-dependent markers of tumor biology, disease progression, survival, and the tumor immune microenvironment across prostate and pancreatic cancer models. The main question were:
+
+### 1. FOLH1 across cancer type
+- Is FOLH1 expression particularly enriched in prostate adenocarcinoma compared with other cancer types?
+- How does FOLH1 expression differ between normal tissue, primary tumors, and metastatic tumors?
+
+### 2. FOLH1 and prostate cancer progression
+- Is FOLH1 expression associated with clinicopathological features such as Gleason score, tumor stage, metastatic site, ETS-fusion status, or neuroendocrine-related characteristics?
+- Is FOLH1 expression associated with disease-free survival in primary or metastatic prostate cancer?
+
+### 3. FOLH1 and the tumor immune micro-environment
+- Is FOLH1 expression associated with differences in inferred immune-cell populations?
+- Are FOLH1 expression levels associated with changes in immune-related pathway activity, including T-cell activation, cytotoxicity, checkpoint signaling, complement, and inflammatory signaling?
+
+### 4. PIP5K1A in pancreatic adenocarcinoma
+- Is PIP5K1A expression associated with immune-infiltration features in pancreatic adenocarcinoma?
+- Do combinations of PIP5K1A expression and immune-infiltration levels provide information about progression-free survival?
+- Does the association between PIP5K1A and disease-free survival differ between classical-like and basal-like pancreatic cancer subtypes?
+
+### 5. PIP5K1A in experimental mouse tumors
+- How does PIP5K1A knockout influence global gene-expression patterns in pancreatic tumors?
+- Do genotype or treatment explain the main sources of transcriptional variation between samples?
+- Which genes, biological pathways, immune-related signatures, and tumor microenvironment features differ between wild-type and knockout tumors?
+
+### 6. Overall interpretation
+- Do FOLH1 and PIP5K1A show consistent associations across datasets, or are their relationships with tumor biology dependent on cancer type, disease state, molecular background, and immune context?
 
 ## Types of Analysis Done
 ### Data Normalization and Transformation
@@ -26,9 +56,19 @@ The prediction models/algorithms will have great potential to be further develop
 - **One-way ANOVA:** Used to test for expression differences across more than two groups.
 - **Kruskal-Wallis test:** Used as a non-parametric alternative when data did not meet normality assumptions.
 - **Spearman’s correlation:** Used to assess monotonic relationships between gene expression and other continuous variables.
+- **Pearson's correlation:** Used to assess the strength and direction of linear relationships between gene-expression measurements or other continuous variables.
+- **Wilcoxon rank-sum test:** Used to compare expression distributions between two independent groups when the data were not normally distributed.
+- **Pairwise Wilcoxon test:** Used for post-hoc comparisons between individual groups following a significant Kruskal–Wallis test.
+
+### Clustering 
+- **Principal component analysis (PCA):** Used to reduce the dimensionality of the gene-expression data and visualize similarities and differences between samples. Sample separation was assessed in relation to experimental factors such as genotype and treatment.
+- **Euclidean-distance clustering:** Euclidean distances were calculated from the expression profiles to quantify the overall dissimilarity between samples. Hierarchical clustering based on these distances was used to identify groups of samples with similar expression patterns.
+- **Sample-to-sample correlation clustering:** Pairwise correlations between sample-expression profiles were calculated to assess how similarly the samples behaved across genes. Hierarchical clustering of the correlation matrix was used to identify samples with similar global transcriptional profiles and to detect potential outliers.
 
 ### Survival Analysis
-- **Overall Survival (OS), Disease-Free Survival (DFS), and Progression-Free Survival (PFS):** Used to evaluate the prognostic relevance of candidate genes.
+- **Overall Survival (OS):** Measured the time from diagnosis or treatment initiation until death from any cause. OS was used to assess whether candidate-gene expression was associated with patient survival.
+- **Disease-Free Survival (DFS):** Measured the time from treatment or initial diagnosis until disease recurrence, progression, or death, depending on the clinical endpoint defined in each dataset. DFS was used to evaluate whether candidate-gene expression was associated with the likelihood of remaining disease-free.
+- **Progression-Free Survival (PFS):** Measured the time from treatment initiation or diagnosis until disease progression or death. PFS was used to investigate whether candidate-gene expression and immune-infiltration features were associated with delayed or accelerated disease progression.
 - **Kaplan-Meier analysis:** Generated survival curves to compare patient outcomes between high- and low-expression groups.
 
 ### Visualization
@@ -39,6 +79,9 @@ The prediction models/algorithms will have great potential to be further develop
 ### Functional Enrichment Analysis
 - **Over-Representation Analysis (ORA):** Used to identify biological processes and pathways enriched in the gene lists.
 - **GO enrichment analysis:** Performed to detect overrepresented Gene Ontology terms related to the candidate genes.
+- **Gene Set Enrichment Analysis (GSEA):** Used to evaluate whether predefined gene sets were systematically enriched toward the top or bottom of a ranked gene list, without requiring an arbitrary significance cut-off for individual genes.
+- **GSEA Hallmark gene sets:** Used to assess enrichment of broad, well-defined biological programs, including pathways related to proliferation, inflammation, metabolism, apoptosis, and epithelial–mesenchymal transition.
+- **GSEA ImmuneSigDB gene sets:** Used to investigate enrichment of immune-related transcriptional signatures and characterize potential differences in immune-associated biological activity between experimental groups.
 - **KEGG enrichment analysis:** Used to identify pathway-level associations and biological mechanisms.
 - **Enrichment dot plots and enrichment maps:** Used to visualize enriched terms and the relationships between them.
 
@@ -152,4 +195,19 @@ Had the weekly meeting with Jenny and discussed my progress and current focuses 
 Carried out further analysis with the mice model data. Nattawan came back to the lab after vacation and we discussed about the samples with low assignmed percentages as well as the werid samples with 3 replicate count files. Nattawan sent an email to Novogene sequencing askign for clarification on why it is as so. I started doing basic analyses for each treatment category, looking into DEGs, clustering based on all significant DEGs, top 100 and top50 DEGs and creating heatmaps for each. I also did pathway enruchment analysis using GO BP, GSEA, HALLMARK as well as immunesigDB pathways. Later, i continued to make a powerpoint with my results to show Jenny in our next meeting.
 
 #### August 4
-Nattawan forwarded me the reply from the sequencing company regarding why one sample had 3 RAW files. they exlained the reasoning and suggested merging the 3 files for downstream analysis. So i did that locally on R by creating a new column in my raw counts matrix, then removing the original three, before normalising or VST the counts. Furthermore i realised my DEG should be more meaningfully done looking into both treatement control or not as well as type of KO, and compare within these groups. So i rewrote all the scripts to take that into account. For ISA treateemnt specifically, the study was designed in a way to also see if there was a difference btween genders (sexes). So i also considered sex wise comparisson of DEGS in just that collection.  
+Nattawan forwarded me the reply from the sequencing company regarding why one sample had 3 RAW files. they explained the reasoning and suggested merging the 3 files for downstream analysis. So i did that locally on R by creating a new column in my raw counts matrix, then removing the original three, before normalising or VST the counts. Furthermore i realised my DEG should be more meaningfully done looking into both treatement control or not as well as type of KO, and compare within these groups. So i rewrote all the scripts to take that into account. For ISA treateemnt specifically, the study was designed in a way to also see if there was a difference btween genders (sexes). So i also considered sex wise comparisson of DEGS in just that collection.  
+
+#### August 5
+I continued working on the analysis following the successful allingments and mostly focused on summarizing the pathway analysis results and creating figures that ae easier to understand and present. I also continued making script wide edits to further improve accuracy and validity and readability and so on.
+
+#### August 7
+Had weekly meeting with jenny where I showed her and the rest of the lab my results from the last week. Got advice on what to focus on next, which was to compare tumor samples without treatment and focus between the two sexed. So i started working on that analysis, combining mice samples that were controls across the different treatment designs.Also worked on 2 more illustrations based on my pathway enrichment results. I included them in my report. Further cleaned out the different analysis types of enruichments that I did to just 3; GO BP ORA, GSEA HALLMARK and GSEA ImmuneSignDB. I also ahd a meeting with martina after a long time, where i took her through the Galaxy steps an shared the advice Martuza gave me on a call, so that everything is clear for her.
+
+### Week 11 (August 10- August 14)
+Further improved upon the gender stratification analysis of the original tumor samples from the mcie models & wrote results in the presentation. Then i started working on the TCGA-PRAD cohort again, looking into the same biomarkers as befoe with prostate cancer, recommneded by Felecia, and also carried out several other connected analyses. Wrote the report on the results and updated my GitHub repository. Later in the week i also continued creating illustrations for the pathway analysis, combining and interpreting the results from several different enrichment methods and combining them into presentable formats. I did this for the MTK treated samples, both single and double flanked as well as the IPA treated collection. At some point i relaised that my desgins in the contrast matrices were reversed, which is why some of the output seemed to be the exact opposite of what was expected, like certain HALLMARK pathways and immune pathways that should be repressed in PIp5K1A KO samples showed enrichments. I changed the design, double checked all my previous scripts to make sure that the designs for DEG were correct and continued re-working on some illustrations. I also decided that in the sex stratified analysis, to only include syngeniec tumors and not mix them with the origignal tumors since they are most probably biologically different and controls were not kept constant. So i editted the script to only include those samples, the controls from each of the treatment experiments.
+
+### Week 12 (August 17- August 21)
+I finalised all the Mouse model analyses, completing all clustering, differential expression analysis, Pathway and immune enrichement analysis, Correlation analysis with FOLH1 and MCP-counter analyses for each collection of tumor and treatement type from the experiments. I moved the results that were on a power point into a word document report and started interpreting the results and describing them in text. Afterworks in the week, I started to look into more datasets to see if i could find more data and cohorts for my previous PRAD analysis, specifically cohorts with more metastases and was able to find the SU2C 2019 prostate adencoarcinoma cohort on cBioPortals. I downloaded the RNA seq data, as well as the clinical and samples data and continude to write scripts for the same analysis that i did earlier during my projects, this time adapted to the new cohort. Was able to get results and diagrams i previosuly couldnt due to the lower sample number. I looked into combining the datasets, but came across literature that was advocating against it, so i decided to incorporate it into my workflow as a seperate set of analyses. This was coincidentally the same dataset Martina had used for her metastases analysis, so i was able to compare the results and check for any differences or interesting patterns. Afterwords, i worked on polishing up my individual three reports, one on prostate adenocarcinoma, one of pancreatic adenocarcinoma and then the last on the mouse model experiments. The idea is to finally combine them all enxt week and create one big project report with everything that i did throguhout the 3 summer months. I also went over the course page on canva and looked into the exam material. Aftrwords i started working on the final presentation powerpoint that i ahve to upload which shoukd be under 15 mins. I started going over my project results, trying to see how to narrow everything down to fall under one research topic, especial given that my project aim changed a bit from the original proposal. I decided to make my focus FOLH1 and PIP5K1A genes and there context dependant role as biomarkers across cancers.
+
+### Week13 (August 24- August 28th)
+Finalized my project presentation, narrowing down everything I've done into a 15 minute presentation. Martina came back this week so we went over our projects and compared our results and talked about our goals and focuses.

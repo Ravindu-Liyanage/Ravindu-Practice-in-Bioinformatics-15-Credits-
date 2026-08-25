@@ -1,0 +1,5 @@
+"correlation_group","genotype","sex","n_samples","samples"
+"Males_KO","KO","Male",4,"KO2912C_OE; KO2918C_OE; KO2960C_OE; KO2913C_OE"
+"Males_WT","WT","Male",4,"WT2921C_OE; WT2910C_OE; WT2898C_OE; WT2965C_OE"
+"Females_KO","KO","Female",3,"KO2868C; KO2881C; KO2882C"
+"Females_WT","WT","Female",6,"C2890WT; C2917WT; C2893WT; WT2868C; WT2881C; WT2882C"

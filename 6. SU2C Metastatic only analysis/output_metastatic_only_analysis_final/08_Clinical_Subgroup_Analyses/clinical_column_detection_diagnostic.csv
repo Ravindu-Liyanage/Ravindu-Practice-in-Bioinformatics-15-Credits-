@@ -1,0 +1,4 @@
+"requested_variable","detected_column","raw_non_missing_values"
+"GLEASON_SCORE","GLEASON_SCORE","UNK | 7 | 9 | 8 | 6 | 10 | 11"
+"NEUROENDOCRINE_FEATURES","NEUROENDOCRINE_FEATURES","No | Yes"
+"ETS_FUSION_STATUS","ETS_FUSION_SEQ","Positive | Negative"

@@ -1,0 +1,17 @@
+"comparison","comparison_label","cell_type","group_1","group_2","n_group_1","n_group_2","statistic","p.value","p.adj"
+"WT_Male_vs_KO_Male","WT male vs KO male","B derived","WT_Male","KO_Male",4,4,1,0.0606019697120061,0.181805909136018
+"WT_Male_vs_KO_Male","WT male vs KO male","Basophils","WT_Male","KO_Male",4,4,10,0.665005542102029,0.71250593796646
+"WT_Male_vs_KO_Male","WT male vs KO male","CD8 T cells","WT_Male","KO_Male",4,4,0,0.0303828219765775,0.151914109882887
+"WT_Male_vs_KO_Male","WT male vs KO male","Endothelial cells","WT_Male","KO_Male",4,4,3,0.193930852282411,0.415566112033737
+"WT_Male_vs_KO_Male","WT male vs KO male","Eosinophils","WT_Male","KO_Male",4,4,3,0.183150203156622,0.415566112033737
+"WT_Male_vs_KO_Male","WT male vs KO male","Fibroblasts","WT_Male","KO_Male",4,4,6,0.665005542102029,0.71250593796646
+"WT_Male_vs_KO_Male","WT male vs KO male","Granulocytes","WT_Male","KO_Male",4,4,8,NA,NA
+"WT_Male_vs_KO_Male","WT male vs KO male","Lymphatics","WT_Male","KO_Male",4,4,7,0.885233914473202,0.885233914473202
+"WT_Male_vs_KO_Male","WT male vs KO male","Mast cells","WT_Male","KO_Male",4,4,6,0.665005542102029,0.71250593796646
+"WT_Male_vs_KO_Male","WT male vs KO male","Memory B cells","WT_Male","KO_Male",4,4,6,0.453254704753736,0.679882057130605
+"WT_Male_vs_KO_Male","WT male vs KO male","Monocytes","WT_Male","KO_Male",4,4,10,0.665005542102029,0.71250593796646
+"WT_Male_vs_KO_Male","WT male vs KO male","Monocytes / macrophages","WT_Male","KO_Male",4,4,0,0.0303828219765775,0.151914109882887
+"WT_Male_vs_KO_Male","WT male vs KO male","NK cells","WT_Male","KO_Male",4,4,1,0.0606019697120061,0.181805909136018
+"WT_Male_vs_KO_Male","WT male vs KO male","Neutrophils","WT_Male","KO_Male",4,4,6,0.453254704753736,0.679882057130605
+"WT_Male_vs_KO_Male","WT male vs KO male","T cells","WT_Male","KO_Male",4,4,4,0.312321421676216,0.585602665642905
+"WT_Male_vs_KO_Male","WT male vs KO male","Vessels","WT_Male","KO_Male",4,4,0,0.0303828219765775,0.151914109882887

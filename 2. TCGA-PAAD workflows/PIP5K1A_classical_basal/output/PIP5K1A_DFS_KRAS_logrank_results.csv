@@ -1,0 +1,3 @@
+"subtype","endpoint","n_original","n_analysis","n_removed","events_analysis","cutoff_months","limiting_group","chisq","p_value"
+"Basal-like","DFS",20,19,1,7,34.09277707,"Low",0.284487849976791,0.593774694862421
+"Classical-like","DFS",29,28,1,11,42.31186508,"High",0.131075791191189,0.717319219199605

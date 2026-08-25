@@ -1,0 +1,3 @@
+"subtype","endpoint","n_original","n_analysis","n_removed","events_analysis","cutoff_months","limiting_group","HR","lower_95_CI","upper_95_CI","p_value"
+"Basal-like","OS",63,60,3,34,31.8331143232589,"High",0.66405776957633,0.337228396622647,1.30763816378172,0.236358529444554
+"Classical-like","OS",78,77,1,44,71.6819973718791,"High",0.589179402761093,0.320492986758319,1.08312001504011,0.0885794733902405

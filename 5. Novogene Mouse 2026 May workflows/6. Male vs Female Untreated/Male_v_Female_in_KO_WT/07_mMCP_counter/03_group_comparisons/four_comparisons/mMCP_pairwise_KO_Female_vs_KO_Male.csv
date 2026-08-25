@@ -1,0 +1,17 @@
+"comparison","comparison_label","cell_type","group_1","group_2","n_group_1","n_group_2","statistic","p.value","p.adj"
+"KO_Female_vs_KO_Male","KO female vs KO male","B derived","KO_Female","KO_Male",3,4,3,0.376759117811582,0.565138676717373
+"KO_Female_vs_KO_Male","KO female vs KO male","Basophils","KO_Female","KO_Male",3,4,8,0.595883090565178,0.63844616846269
+"KO_Female_vs_KO_Male","KO female vs KO male","CD8 T cells","KO_Female","KO_Male",3,4,0,0.0518299272179097,0.194362227067161
+"KO_Female_vs_KO_Male","KO female vs KO male","Endothelial cells","KO_Female","KO_Male",3,4,4,0.595883090565178,0.63844616846269
+"KO_Female_vs_KO_Male","KO female vs KO male","Eosinophils","KO_Female","KO_Male",3,4,2.5,0.284502697911207,0.533442558583514
+"KO_Female_vs_KO_Male","KO female vs KO male","Fibroblasts","KO_Female","KO_Male",3,4,0,0.0518299272179097,0.194362227067161
+"KO_Female_vs_KO_Male","KO female vs KO male","Granulocytes","KO_Female","KO_Male",3,4,6,NA,NA
+"KO_Female_vs_KO_Male","KO female vs KO male","Lymphatics","KO_Female","KO_Male",3,4,9,0.376759117811582,0.565138676717373
+"KO_Female_vs_KO_Male","KO female vs KO male","Mast cells","KO_Female","KO_Male",3,4,1,0.108408299981465,0.279029420745731
+"KO_Female_vs_KO_Male","KO female vs KO male","Memory B cells","KO_Female","KO_Male",3,4,4.5,0.563702861650773,0.63844616846269
+"KO_Female_vs_KO_Male","KO female vs KO male","Monocytes","KO_Female","KO_Male",3,4,4,0.595883090565178,0.63844616846269
+"KO_Female_vs_KO_Male","KO female vs KO male","Monocytes / macrophages","KO_Female","KO_Male",3,4,0,0.0518299272179097,0.194362227067161
+"KO_Female_vs_KO_Male","KO female vs KO male","NK cells","KO_Female","KO_Male",3,4,10,0.21592493894014,0.462696297728872
+"KO_Female_vs_KO_Male","KO female vs KO male","Neutrophils","KO_Female","KO_Male",3,4,7,0.825497910704632,0.825497910704632
+"KO_Female_vs_KO_Male","KO female vs KO male","T cells","KO_Female","KO_Male",3,4,1,0.111611768298292,0.279029420745731
+"KO_Female_vs_KO_Male","KO female vs KO male","Vessels","KO_Female","KO_Male",3,4,0,0.0518299272179097,0.194362227067161

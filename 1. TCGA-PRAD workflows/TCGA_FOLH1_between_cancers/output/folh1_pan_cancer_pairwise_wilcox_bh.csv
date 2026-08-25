@@ -1,0 +1,497 @@
+"cancer_type_1","cancer_type_2","p_adj_bh"
+"Kidney Renal Clear Cell Carcinoma","Adrenocortical Carcinoma",0
+"Prostate Adenocarcinoma","Adrenocortical Carcinoma",0
+"Brain Glioblastoma","Bladder Urothelial Carcinoma",0
+"Brain Lower Grade Glioma","Bladder Urothelial Carcinoma",0
+"Kidney Renal Clear Cell Carcinoma","Bladder Urothelial Carcinoma",0
+"Liver Hepatocellular Carcinoma","Bladder Urothelial Carcinoma",0
+"Lung Squamous Cell Carcinoma","Bladder Urothelial Carcinoma",0
+"Ovarian Serous Cystadenocarcinoma","Bladder Urothelial Carcinoma",0
+"Prostate Adenocarcinoma","Bladder Urothelial Carcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Bladder Urothelial Carcinoma",0
+"Kidney Renal Clear Cell Carcinoma","Brain Glioblastoma",0
+"Prostate Adenocarcinoma","Brain Glioblastoma",0
+"Uterine Corpus Endometrial Carcinoma","Brain Glioblastoma",0
+"Kidney Renal Clear Cell Carcinoma","Brain Lower Grade Glioma",0
+"Prostate Adenocarcinoma","Brain Lower Grade Glioma",0
+"Uterine Corpus Endometrial Carcinoma","Brain Lower Grade Glioma",0
+"Kidney Renal Clear Cell Carcinoma","Breast Invasive Carcinoma",0
+"Liver Hepatocellular Carcinoma","Breast Invasive Carcinoma",0
+"Lung Squamous Cell Carcinoma","Breast Invasive Carcinoma",0
+"Prostate Adenocarcinoma","Breast Invasive Carcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Breast Invasive Carcinoma",0
+"Kidney Renal Clear Cell Carcinoma","Cervical Squamous Cell Carcinoma",0
+"Liver Hepatocellular Carcinoma","Cervical Squamous Cell Carcinoma",0
+"Lung Adenocarcinoma","Cervical Squamous Cell Carcinoma",0
+"Lung Squamous Cell Carcinoma","Cervical Squamous Cell Carcinoma",0
+"Ovarian Serous Cystadenocarcinoma","Cervical Squamous Cell Carcinoma",0
+"Pheochromocytoma","Cervical Squamous Cell Carcinoma",0
+"Prostate Adenocarcinoma","Cervical Squamous Cell Carcinoma",0
+"Sarcoma","Cervical Squamous Cell Carcinoma",0
+"Thyroid Carcinoma","Cervical Squamous Cell Carcinoma",0
+"Uterine Carcinosarcoma","Cervical Squamous Cell Carcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Cervical Squamous Cell Carcinoma",0
+"Kidney Renal Clear Cell Carcinoma","Cholangiocarcinoma",0
+"Prostate Adenocarcinoma","Cholangiocarcinoma",0
+"Kidney Renal Clear Cell Carcinoma","Colon Adenocarcinoma",0
+"Liver Hepatocellular Carcinoma","Colon Adenocarcinoma",0
+"Lung Adenocarcinoma","Colon Adenocarcinoma",0
+"Lung Squamous Cell Carcinoma","Colon Adenocarcinoma",0
+"Ovarian Serous Cystadenocarcinoma","Colon Adenocarcinoma",0
+"Pancreatic Adenocarcinoma","Colon Adenocarcinoma",0
+"Pheochromocytoma","Colon Adenocarcinoma",0
+"Prostate Adenocarcinoma","Colon Adenocarcinoma",0
+"Sarcoma","Colon Adenocarcinoma",0
+"Thyroid Carcinoma","Colon Adenocarcinoma",0
+"Uterine Carcinosarcoma","Colon Adenocarcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Colon Adenocarcinoma",0
+"Esophageal Carcinoma","Diffuse Large B-cell Lymphoma",0
+"Head and Neck Squamous Cell Carcinoma","Diffuse Large B-cell Lymphoma",0
+"Kidney Renal Clear Cell Carcinoma","Diffuse Large B-cell Lymphoma",0
+"Liver Hepatocellular Carcinoma","Diffuse Large B-cell Lymphoma",0
+"Lung Adenocarcinoma","Diffuse Large B-cell Lymphoma",0
+"Lung Squamous Cell Carcinoma","Diffuse Large B-cell Lymphoma",0
+"Ovarian Serous Cystadenocarcinoma","Diffuse Large B-cell Lymphoma",0
+"Pancreatic Adenocarcinoma","Diffuse Large B-cell Lymphoma",0
+"Pheochromocytoma","Diffuse Large B-cell Lymphoma",0
+"Prostate Adenocarcinoma","Diffuse Large B-cell Lymphoma",0
+"Stomach Adenocarcinoma","Diffuse Large B-cell Lymphoma",0
+"Thyroid Carcinoma","Diffuse Large B-cell Lymphoma",0
+"Uterine Corpus Endometrial Carcinoma","Diffuse Large B-cell Lymphoma",0
+"Kidney Renal Clear Cell Carcinoma","Esophageal Carcinoma",0
+"Liver Hepatocellular Carcinoma","Esophageal Carcinoma",0
+"Prostate Adenocarcinoma","Esophageal Carcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Esophageal Carcinoma",0
+"Kidney Renal Clear Cell Carcinoma","Head and Neck Squamous Cell Carcinoma",0
+"Liver Hepatocellular Carcinoma","Head and Neck Squamous Cell Carcinoma",0
+"Lung Squamous Cell Carcinoma","Head and Neck Squamous Cell Carcinoma",0
+"Prostate Adenocarcinoma","Head and Neck Squamous Cell Carcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Head and Neck Squamous Cell Carcinoma",0
+"Kidney Renal Clear Cell Carcinoma","Kidney Chromophobe",0
+"Liver Hepatocellular Carcinoma","Kidney Chromophobe",0
+"Prostate Adenocarcinoma","Kidney Chromophobe",0
+"Uterine Corpus Endometrial Carcinoma","Kidney Chromophobe",0
+"Prostate Adenocarcinoma","Kidney Renal Clear Cell Carcinoma",0
+"Liver Hepatocellular Carcinoma","Kidney Renal Papillary Cell Carcinoma",0
+"Lung Adenocarcinoma","Kidney Renal Papillary Cell Carcinoma",0
+"Lung Squamous Cell Carcinoma","Kidney Renal Papillary Cell Carcinoma",0
+"Ovarian Serous Cystadenocarcinoma","Kidney Renal Papillary Cell Carcinoma",0
+"Pancreatic Adenocarcinoma","Kidney Renal Papillary Cell Carcinoma",0
+"Pheochromocytoma","Kidney Renal Papillary Cell Carcinoma",0
+"Prostate Adenocarcinoma","Kidney Renal Papillary Cell Carcinoma",0
+"Sarcoma","Kidney Renal Papillary Cell Carcinoma",0
+"Stomach Adenocarcinoma","Kidney Renal Papillary Cell Carcinoma",0
+"Thyroid Carcinoma","Kidney Renal Papillary Cell Carcinoma",0
+"Uterine Carcinosarcoma","Kidney Renal Papillary Cell Carcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Kidney Renal Papillary Cell Carcinoma",0
+"Prostate Adenocarcinoma","Liver Hepatocellular Carcinoma",0
+"Lung Squamous Cell Carcinoma","Lung Adenocarcinoma",0
+"Prostate Adenocarcinoma","Lung Adenocarcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Lung Adenocarcinoma",0
+"Prostate Adenocarcinoma","Lung Squamous Cell Carcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Lung Squamous Cell Carcinoma",0
+"Prostate Adenocarcinoma","Mesothelioma",0
+"Uterine Corpus Endometrial Carcinoma","Mesothelioma",0
+"Prostate Adenocarcinoma","Ovarian Serous Cystadenocarcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Ovarian Serous Cystadenocarcinoma",0
+"Prostate Adenocarcinoma","Pancreatic Adenocarcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Pancreatic Adenocarcinoma",0
+"Prostate Adenocarcinoma","Pheochromocytoma",0
+"Uterine Corpus Endometrial Carcinoma","Pheochromocytoma",0
+"Thyroid Carcinoma","Rectal Adenocarcinoma",0
+"Uterine Carcinosarcoma","Rectal Adenocarcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Rectal Adenocarcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Sarcoma",0
+"Uterine Corpus Endometrial Carcinoma","Skin Cutaneous Melanoma",0
+"Uterine Corpus Endometrial Carcinoma","Stomach Adenocarcinoma",0
+"Uterine Corpus Endometrial Carcinoma","Testicular Germ Cell Tumors",0
+"Thyroid Carcinoma","Thymoma",0
+"Uterine Carcinosarcoma","Thymoma",0
+"Uterine Corpus Endometrial Carcinoma","Thymoma",0
+"Uterine Corpus Endometrial Carcinoma","Thyroid Carcinoma",0
+"Thyroid Carcinoma","Prostate Adenocarcinoma",2.90918832442759e-164
+"Uterine Corpus Endometrial Carcinoma","Prostate Adenocarcinoma",7.68623109719768e-164
+"Stomach Adenocarcinoma","Prostate Adenocarcinoma",3.64154174568966e-147
+"Lung Adenocarcinoma","Kidney Renal Clear Cell Carcinoma",1.00248363105018e-145
+"Thyroid Carcinoma","Kidney Renal Clear Cell Carcinoma",1.12340226695848e-138
+"Stomach Adenocarcinoma","Kidney Renal Clear Cell Carcinoma",9.68337350495881e-118
+"Sarcoma","Prostate Adenocarcinoma",2.99158913237604e-111
+"Kidney Renal Papillary Cell Carcinoma","Kidney Renal Clear Cell Carcinoma",2.73226450925756e-110
+"Ovarian Serous Cystadenocarcinoma","Kidney Renal Clear Cell Carcinoma",5.45536593395338e-108
+"Colon Adenocarcinoma","Brain Glioblastoma",1.15882336504418e-88
+"Lung Squamous Cell Carcinoma","Kidney Renal Clear Cell Carcinoma",1.17986705019713e-84
+"Rectal Adenocarcinoma","Prostate Adenocarcinoma",1.91205124154964e-82
+"Rectal Adenocarcinoma","Kidney Renal Clear Cell Carcinoma",1.68005876547699e-78
+"Sarcoma","Kidney Renal Clear Cell Carcinoma",2.76429086076231e-77
+"Testicular Germ Cell Tumors","Prostate Adenocarcinoma",2.82173338441745e-76
+"Colon Adenocarcinoma","Brain Lower Grade Glioma",5.28490976586937e-76
+"Lung Adenocarcinoma","Liver Hepatocellular Carcinoma",5.68433466811355e-74
+"Pancreatic Adenocarcinoma","Kidney Renal Clear Cell Carcinoma",3.7863311604377e-68
+"Stomach Adenocarcinoma","Liver Hepatocellular Carcinoma",2.92345292222246e-66
+"Testicular Germ Cell Tumors","Kidney Renal Clear Cell Carcinoma",1.19683888261544e-65
+"Thyroid Carcinoma","Liver Hepatocellular Carcinoma",1.52482418648047e-65
+"Thymoma","Prostate Adenocarcinoma",2.33774312064906e-64
+"Thymoma","Kidney Renal Clear Cell Carcinoma",4.62030078651834e-62
+"Cervical Squamous Cell Carcinoma","Brain Glioblastoma",6.71923642933776e-62
+"Kidney Renal Papillary Cell Carcinoma","Brain Glioblastoma",2.97544884574108e-61
+"Rectal Adenocarcinoma","Liver Hepatocellular Carcinoma",9.37692795832788e-61
+"Kidney Renal Papillary Cell Carcinoma","Brain Lower Grade Glioma",1.43104704146719e-57
+"Skin Cutaneous Melanoma","Prostate Adenocarcinoma",1.62831487003054e-56
+"Colon Adenocarcinoma","Breast Invasive Carcinoma",6.38682247560756e-56
+"Cervical Squamous Cell Carcinoma","Brain Lower Grade Glioma",8.1426169256863e-55
+"Pheochromocytoma","Kidney Renal Clear Cell Carcinoma",3.25887013745201e-51
+"Thymoma","Liver Hepatocellular Carcinoma",3.91544686033246e-51
+"Rectal Adenocarcinoma","Brain Glioblastoma",4.0332420377056e-51
+"Uveal Melanoma","Prostate Adenocarcinoma",2.9442006757109e-46
+"Thymoma","Brain Glioblastoma",2.46332851002407e-45
+"Skin Cutaneous Melanoma","Kidney Renal Clear Cell Carcinoma",5.2318530603663e-45
+"Mesothelioma","Kidney Renal Clear Cell Carcinoma",5.67261865598191e-45
+"Uveal Melanoma","Kidney Renal Clear Cell Carcinoma",6.50700737751196e-45
+"Lung Adenocarcinoma","Brain Glioblastoma",1.15582302496964e-43
+"Stomach Adenocarcinoma","Brain Glioblastoma",2.28568472219695e-43
+"Uveal Melanoma","Uterine Corpus Endometrial Carcinoma",1.03098223531817e-42
+"Kidney Renal Papillary Cell Carcinoma","Breast Invasive Carcinoma",3.16603009856579e-42
+"Testicular Germ Cell Tumors","Liver Hepatocellular Carcinoma",4.86131702751895e-42
+"Head and Neck Squamous Cell Carcinoma","Brain Glioblastoma",7.68948937631988e-42
+"Thymoma","Brain Lower Grade Glioma",9.66335585796811e-42
+"Pancreatic Adenocarcinoma","Liver Hepatocellular Carcinoma",2.8475509889289e-41
+"Rectal Adenocarcinoma","Brain Lower Grade Glioma",1.45711283537577e-40
+"Thymoma","Lung Squamous Cell Carcinoma",5.09106169538411e-40
+"Ovarian Serous Cystadenocarcinoma","Liver Hepatocellular Carcinoma",7.94116238991298e-40
+"Lung Adenocarcinoma","Brain Lower Grade Glioma",8.30356854550296e-40
+"Head and Neck Squamous Cell Carcinoma","Brain Lower Grade Glioma",2.81495558256557e-39
+"Uveal Melanoma","Liver Hepatocellular Carcinoma",3.55132664564293e-39
+"Rectal Adenocarcinoma","Lung Squamous Cell Carcinoma",4.05497208279673e-38
+"Stomach Adenocarcinoma","Brain Lower Grade Glioma",1.67336059616544e-37
+"Breast Invasive Carcinoma","Brain Glioblastoma",1.7716007381829e-37
+"Cervical Squamous Cell Carcinoma","Breast Invasive Carcinoma",4.86605562268953e-37
+"Thymoma","Ovarian Serous Cystadenocarcinoma",2.90254644971377e-36
+"Breast Invasive Carcinoma","Brain Lower Grade Glioma",3.1294594583261e-36
+"Uveal Melanoma","Brain Glioblastoma",1.24641057153456e-35
+"Thymoma","Breast Invasive Carcinoma",2.65078543132432e-35
+"Uterine Carcinosarcoma","Prostate Adenocarcinoma",2.61441937052343e-34
+"Thyroid Carcinoma","Brain Glioblastoma",5.48049742503601e-34
+"Rectal Adenocarcinoma","Ovarian Serous Cystadenocarcinoma",9.79066434439987e-34
+"Sarcoma","Liver Hepatocellular Carcinoma",1.25545788736664e-33
+"Mesothelioma","Liver Hepatocellular Carcinoma",1.76069734114147e-32
+"Skin Cutaneous Melanoma","Liver Hepatocellular Carcinoma",6.78289195712455e-32
+"Thyroid Carcinoma","Brain Lower Grade Glioma",3.5601128648594e-31
+"Testicular Germ Cell Tumors","Brain Glioblastoma",4.42269959148409e-30
+"Liver Hepatocellular Carcinoma","Kidney Renal Clear Cell Carcinoma",5.622932115909e-30
+"Stomach Adenocarcinoma","Lung Squamous Cell Carcinoma",1.62526767805927e-28
+"Uveal Melanoma","Brain Lower Grade Glioma",6.63970921999091e-28
+"Uveal Melanoma","Lung Squamous Cell Carcinoma",1.06892801768392e-27
+"Uveal Melanoma","Ovarian Serous Cystadenocarcinoma",1.72713790326628e-27
+"Rectal Adenocarcinoma","Breast Invasive Carcinoma",2.49267906283118e-27
+"Thymoma","Lung Adenocarcinoma",1.10822084553788e-26
+"Diffuse Large B-cell Lymphoma","Brain Glioblastoma",1.6121981602595e-26
+"Uterine Corpus Endometrial Carcinoma","Kidney Renal Clear Cell Carcinoma",2.09068348584701e-26
+"Pancreatic Adenocarcinoma","Brain Glioblastoma",3.40411585945337e-26
+"Testicular Germ Cell Tumors","Brain Lower Grade Glioma",5.46556169609522e-26
+"Diffuse Large B-cell Lymphoma","Breast Invasive Carcinoma",8.18707395773064e-25
+"Mesothelioma","Brain Glioblastoma",1.61999251017541e-24
+"Skin Cutaneous Melanoma","Brain Glioblastoma",2.81098629892945e-24
+"Uveal Melanoma","Thyroid Carcinoma",5.53505182368267e-24
+"Uveal Melanoma","Breast Invasive Carcinoma",1.32245018060228e-23
+"Diffuse Large B-cell Lymphoma","Brain Lower Grade Glioma",5.75745592554768e-23
+"Thymoma","Pheochromocytoma",8.09654210032566e-23
+"Thymoma","Stomach Adenocarcinoma",1.94060537421952e-22
+"Thymoma","Sarcoma",3.01669154022772e-22
+"Thymoma","Head and Neck Squamous Cell Carcinoma",4.47833055549731e-22
+"Testicular Germ Cell Tumors","Lung Squamous Cell Carcinoma",6.74769240088846e-22
+"Esophageal Carcinoma","Brain Glioblastoma",1.10002988862383e-21
+"Skin Cutaneous Melanoma","Brain Lower Grade Glioma",3.08962780582924e-21
+"Thymoma","Pancreatic Adenocarcinoma",5.2693925801788e-21
+"Pancreatic Adenocarcinoma","Brain Lower Grade Glioma",6.90952842763851e-21
+"Uterine Carcinosarcoma","Kidney Renal Clear Cell Carcinoma",9.08867170370244e-21
+"Pheochromocytoma","Liver Hepatocellular Carcinoma",2.53839669599294e-20
+"Thymoma","Bladder Urothelial Carcinoma",3.4506991857115e-20
+"Thymoma","Esophageal Carcinoma",4.03845333646113e-20
+"Colon Adenocarcinoma","Adrenocortical Carcinoma",6.65506272406627e-20
+"Mesothelioma","Brain Lower Grade Glioma",9.03867138496071e-20
+"Thymoma","Adrenocortical Carcinoma",2.59372942382233e-19
+"Lung Squamous Cell Carcinoma","Liver Hepatocellular Carcinoma",3.77603035157643e-19
+"Esophageal Carcinoma","Brain Lower Grade Glioma",1.05358394938544e-18
+"Skin Cutaneous Melanoma","Lung Squamous Cell Carcinoma",1.13933433944411e-18
+"Kidney Renal Papillary Cell Carcinoma","Head and Neck Squamous Cell Carcinoma",2.09078541319213e-18
+"Diffuse Large B-cell Lymphoma","Bladder Urothelial Carcinoma",5.11314822727055e-18
+"Uveal Melanoma","Uterine Carcinosarcoma",8.44215575347703e-18
+"Thyroid Carcinoma","Lung Squamous Cell Carcinoma",1.25861430542443e-17
+"Stomach Adenocarcinoma","Ovarian Serous Cystadenocarcinoma",2.37569268005005e-17
+"Kidney Renal Papillary Cell Carcinoma","Adrenocortical Carcinoma",3.3237850966709e-17
+"Diffuse Large B-cell Lymphoma","Cholangiocarcinoma",3.68828197111432e-17
+"Mesothelioma","Lung Squamous Cell Carcinoma",6.80647579929977e-17
+"Rectal Adenocarcinoma","Adrenocortical Carcinoma",1.75644075662269e-16
+"Cervical Squamous Cell Carcinoma","Adrenocortical Carcinoma",2.65383467082391e-16
+"Testicular Germ Cell Tumors","Ovarian Serous Cystadenocarcinoma",3.3306267760746e-16
+"Sarcoma","Diffuse Large B-cell Lymphoma",4.85172352611522e-16
+"Uterine Carcinosarcoma","Diffuse Large B-cell Lymphoma",4.85172352611522e-16
+"Thymoma","Kidney Chromophobe",7.32023580383374e-16
+"Uveal Melanoma","Adrenocortical Carcinoma",8.30615847111751e-16
+"Kidney Chromophobe","Diffuse Large B-cell Lymphoma",9.57688035154918e-16
+"Uveal Melanoma","Lung Adenocarcinoma",1.07209326987089e-15
+"Kidney Renal Papillary Cell Carcinoma","Esophageal Carcinoma",1.40749504370009e-15
+"Breast Invasive Carcinoma","Bladder Urothelial Carcinoma",1.41803593188174e-15
+"Uveal Melanoma","Pancreatic Adenocarcinoma",1.95490554910959e-15
+"Sarcoma","Brain Glioblastoma",2.1845345313138e-15
+"Diffuse Large B-cell Lymphoma","Adrenocortical Carcinoma",2.55592265160872e-15
+"Skin Cutaneous Melanoma","Ovarian Serous Cystadenocarcinoma",4.08154420755545e-15
+"Ovarian Serous Cystadenocarcinoma","Head and Neck Squamous Cell Carcinoma",5.55298104417557e-15
+"Uveal Melanoma","Pheochromocytoma",7.17318643151865e-15
+"Kidney Chromophobe","Colon Adenocarcinoma",7.3422749361877e-15
+"Kidney Renal Papillary Cell Carcinoma","Bladder Urothelial Carcinoma",7.93957744330577e-15
+"Sarcoma","Rectal Adenocarcinoma",8.19179435029206e-15
+"Rectal Adenocarcinoma","Lung Adenocarcinoma",9.47597903996736e-15
+"Uveal Melanoma","Kidney Chromophobe",9.71046123503302e-15
+"Rectal Adenocarcinoma","Pheochromocytoma",9.71046123503302e-15
+"Pancreatic Adenocarcinoma","Lung Squamous Cell Carcinoma",1.04254742884599e-14
+"Sarcoma","Brain Lower Grade Glioma",1.10934756154932e-14
+"Thyroid Carcinoma","Bladder Urothelial Carcinoma",1.64313007644523e-14
+"Ovarian Serous Cystadenocarcinoma","Brain Glioblastoma",2.05361876380727e-14
+"Uveal Melanoma","Sarcoma",2.07429736400927e-14
+"Head and Neck Squamous Cell Carcinoma","Colon Adenocarcinoma",2.63268822413105e-14
+"Stomach Adenocarcinoma","Colon Adenocarcinoma",2.97187318845693e-14
+"Ovarian Serous Cystadenocarcinoma","Brain Lower Grade Glioma",3.98323829051054e-14
+"Uterine Carcinosarcoma","Bladder Urothelial Carcinoma",5.33326663671902e-14
+"Pancreatic Adenocarcinoma","Cervical Squamous Cell Carcinoma",8.72435021829362e-14
+"Diffuse Large B-cell Lymphoma","Colon Adenocarcinoma",1.05154164002498e-13
+"Ovarian Serous Cystadenocarcinoma","Mesothelioma",1.85128177379363e-13
+"Thymoma","Colon Adenocarcinoma",4.65535214258903e-13
+"Rectal Adenocarcinoma","Kidney Chromophobe",4.80035358997859e-13
+"Rectal Adenocarcinoma","Pancreatic Adenocarcinoma",5.15923675034643e-13
+"Uterine Corpus Endometrial Carcinoma","Adrenocortical Carcinoma",8.3929797977456e-13
+"Stomach Adenocarcinoma","Cervical Squamous Cell Carcinoma",1.05426100419611e-12
+"Lung Squamous Cell Carcinoma","Esophageal Carcinoma",1.18006829487701e-12
+"Ovarian Serous Cystadenocarcinoma","Lung Adenocarcinoma",1.2661252517801e-12
+"Head and Neck Squamous Cell Carcinoma","Cervical Squamous Cell Carcinoma",1.69440310838701e-12
+"Esophageal Carcinoma","Colon Adenocarcinoma",1.76545828916754e-12
+"Bladder Urothelial Carcinoma","Adrenocortical Carcinoma",4.1329477965262e-12
+"Kidney Renal Papillary Cell Carcinoma","Kidney Chromophobe",4.44057136878924e-12
+"Rectal Adenocarcinoma","Diffuse Large B-cell Lymphoma",4.53146648663897e-12
+"Liver Hepatocellular Carcinoma","Brain Glioblastoma",4.86955989934493e-12
+"Skin Cutaneous Melanoma","Breast Invasive Carcinoma",5.81561425883575e-12
+"Testicular Germ Cell Tumors","Breast Invasive Carcinoma",5.81561425883575e-12
+"Uveal Melanoma","Stomach Adenocarcinoma",6.09154924937536e-12
+"Uterine Carcinosarcoma","Mesothelioma",8.64432288928756e-12
+"Uveal Melanoma","Cholangiocarcinoma",9.253610857441e-12
+"Uveal Melanoma","Esophageal Carcinoma",9.52082995335808e-12
+"Esophageal Carcinoma","Cervical Squamous Cell Carcinoma",1.5646202344162e-11
+"Thymoma","Cholangiocarcinoma",1.7806997711874e-11
+"Uterine Corpus Endometrial Carcinoma","Cholangiocarcinoma",2.68683840608396e-11
+"Uterine Carcinosarcoma","Testicular Germ Cell Tumors",2.96976665481452e-11
+"Kidney Chromophobe","Cervical Squamous Cell Carcinoma",2.99576575487993e-11
+"Thyroid Carcinoma","Skin Cutaneous Melanoma",3.01533171953819e-11
+"Uterine Carcinosarcoma","Skin Cutaneous Melanoma",4.70533451228577e-11
+"Thyroid Carcinoma","Testicular Germ Cell Tumors",5.88581577842337e-11
+"Uterine Carcinosarcoma","Stomach Adenocarcinoma",7.47822295316406e-11
+"Uveal Melanoma","Head and Neck Squamous Cell Carcinoma",9.81366195371437e-11
+"Colon Adenocarcinoma","Cholangiocarcinoma",2.01152795230578e-10
+"Mesothelioma","Diffuse Large B-cell Lymphoma",4.29726143558185e-10
+"Uveal Melanoma","Bladder Urothelial Carcinoma",4.31366460441486e-10
+"Thymoma","Rectal Adenocarcinoma",5.71814867889262e-10
+"Rectal Adenocarcinoma","Cholangiocarcinoma",5.94661596391175e-10
+"Uterine Carcinosarcoma","Lung Adenocarcinoma",7.85484116106514e-10
+"Mesothelioma","Adrenocortical Carcinoma",9.26566247386957e-10
+"Thymoma","Testicular Germ Cell Tumors",9.52059616627588e-10
+"Skin Cutaneous Melanoma","Adrenocortical Carcinoma",9.75878330512324e-10
+"Colon Adenocarcinoma","Bladder Urothelial Carcinoma",1.00031217461792e-09
+"Testicular Germ Cell Tumors","Adrenocortical Carcinoma",1.1629964194362e-09
+"Thymoma","Cervical Squamous Cell Carcinoma",1.30738667078448e-09
+"Rectal Adenocarcinoma","Esophageal Carcinoma",1.46852048199772e-09
+"Uterine Carcinosarcoma","Head and Neck Squamous Cell Carcinoma",1.749696790417e-09
+"Testicular Germ Cell Tumors","Diffuse Large B-cell Lymphoma",1.99474010731098e-09
+"Stomach Adenocarcinoma","Rectal Adenocarcinoma",2.57519948559018e-09
+"Cervical Squamous Cell Carcinoma","Bladder Urothelial Carcinoma",2.82547072608481e-09
+"Uterine Carcinosarcoma","Pancreatic Adenocarcinoma",3.83287184447274e-09
+"Liver Hepatocellular Carcinoma","Cholangiocarcinoma",4.59168084538104e-09
+"Diffuse Large B-cell Lymphoma","Cervical Squamous Cell Carcinoma",5.35338163365656e-09
+"Thyroid Carcinoma","Mesothelioma",5.35338163365656e-09
+"Stomach Adenocarcinoma","Adrenocortical Carcinoma",5.70605943870909e-09
+"Kidney Chromophobe","Brain Glioblastoma",6.20444278403143e-09
+"Skin Cutaneous Melanoma","Pheochromocytoma",6.43085620946798e-09
+"Rectal Adenocarcinoma","Head and Neck Squamous Cell Carcinoma",6.91508373612901e-09
+"Kidney Renal Papillary Cell Carcinoma","Cholangiocarcinoma",7.24522040191007e-09
+"Uterine Corpus Endometrial Carcinoma","Uterine Carcinosarcoma",7.43394218316737e-09
+"Thymoma","Mesothelioma",7.44703462212066e-09
+"Mesothelioma","Breast Invasive Carcinoma",8.40933774656833e-09
+"Stomach Adenocarcinoma","Breast Invasive Carcinoma",9.65676903689755e-09
+"Liver Hepatocellular Carcinoma","Adrenocortical Carcinoma",1.10647616579074e-08
+"Cholangiocarcinoma","Cervical Squamous Cell Carcinoma",1.38587084505729e-08
+"Pheochromocytoma","Bladder Urothelial Carcinoma",1.4884173898961e-08
+"Testicular Germ Cell Tumors","Pheochromocytoma",2.40369059258585e-08
+"Thyroid Carcinoma","Stomach Adenocarcinoma",2.70758262857694e-08
+"Liver Hepatocellular Carcinoma","Brain Lower Grade Glioma",3.07367662750429e-08
+"Pancreatic Adenocarcinoma","Ovarian Serous Cystadenocarcinoma",3.35914402187293e-08
+"Sarcoma","Bladder Urothelial Carcinoma",3.54499800049847e-08
+"Sarcoma","Lung Squamous Cell Carcinoma",4.94802500410077e-08
+"Pheochromocytoma","Brain Glioblastoma",6.07308476217075e-08
+"Uterine Carcinosarcoma","Thyroid Carcinoma",7.2787272098134e-08
+"Skin Cutaneous Melanoma","Sarcoma",8.867459303494e-08
+"Head and Neck Squamous Cell Carcinoma","Adrenocortical Carcinoma",9.10249139740679e-08
+"Lung Adenocarcinoma","Adrenocortical Carcinoma",1.0033400809166e-07
+"Pheochromocytoma","Brain Lower Grade Glioma",1.44401103834529e-07
+"Head and Neck Squamous Cell Carcinoma","Breast Invasive Carcinoma",1.5130176214891e-07
+"Kidney Chromophobe","Brain Lower Grade Glioma",1.55611808369878e-07
+"Skin Cutaneous Melanoma","Lung Adenocarcinoma",2.10711117965556e-07
+"Uterine Carcinosarcoma","Esophageal Carcinoma",3.16419213452382e-07
+"Testicular Germ Cell Tumors","Sarcoma",3.3912064704506e-07
+"Pancreatic Adenocarcinoma","Adrenocortical Carcinoma",4.03264681869563e-07
+"Pheochromocytoma","Mesothelioma",4.74708792921606e-07
+"Uterine Carcinosarcoma","Breast Invasive Carcinoma",5.88497129541062e-07
+"Uveal Melanoma","Diffuse Large B-cell Lymphoma",7.72085257312185e-07
+"Rectal Adenocarcinoma","Bladder Urothelial Carcinoma",1.15032141672204e-06
+"Ovarian Serous Cystadenocarcinoma","Breast Invasive Carcinoma",1.22465066754433e-06
+"Skin Cutaneous Melanoma","Pancreatic Adenocarcinoma",1.50688986712982e-06
+"Skin Cutaneous Melanoma","Kidney Chromophobe",1.60404740241036e-06
+"Thyroid Carcinoma","Head and Neck Squamous Cell Carcinoma",2.13383646547239e-06
+"Ovarian Serous Cystadenocarcinoma","Esophageal Carcinoma",2.85435053669772e-06
+"Sarcoma","Mesothelioma",3.19124021741885e-06
+"Mesothelioma","Kidney Chromophobe",4.71203652563097e-06
+"Skin Cutaneous Melanoma","Esophageal Carcinoma",4.77106769277765e-06
+"Testicular Germ Cell Tumors","Lung Adenocarcinoma",5.10551502207991e-06
+"Testicular Germ Cell Tumors","Kidney Chromophobe",5.50246169468508e-06
+"Kidney Chromophobe","Bladder Urothelial Carcinoma",5.56608998054047e-06
+"Thyroid Carcinoma","Ovarian Serous Cystadenocarcinoma",1.04272120016383e-05
+"Uterine Carcinosarcoma","Liver Hepatocellular Carcinoma",1.191678444354e-05
+"Thyroid Carcinoma","Adrenocortical Carcinoma",1.31087214317815e-05
+"Kidney Renal Papillary Cell Carcinoma","Colon Adenocarcinoma",1.31087214317815e-05
+"Ovarian Serous Cystadenocarcinoma","Lung Squamous Cell Carcinoma",1.38070028675226e-05
+"Mesothelioma","Cholangiocarcinoma",1.39892136568744e-05
+"Skin Cutaneous Melanoma","Cholangiocarcinoma",1.46647966031413e-05
+"Stomach Adenocarcinoma","Pheochromocytoma",1.52469493679398e-05
+"Thymoma","Skin Cutaneous Melanoma",1.54482407267228e-05
+"Stomach Adenocarcinoma","Skin Cutaneous Melanoma",1.6603825791537e-05
+"Testicular Germ Cell Tumors","Pancreatic Adenocarcinoma",2.13902866062893e-05
+"Skin Cutaneous Melanoma","Diffuse Large B-cell Lymphoma",2.37242112538908e-05
+"Esophageal Carcinoma","Adrenocortical Carcinoma",2.54668853134105e-05
+"Pheochromocytoma","Head and Neck Squamous Cell Carcinoma",3.17055804337629e-05
+"Skin Cutaneous Melanoma","Head and Neck Squamous Cell Carcinoma",3.18629753855008e-05
+"Testicular Germ Cell Tumors","Cholangiocarcinoma",3.68796515004396e-05
+"Lung Adenocarcinoma","Bladder Urothelial Carcinoma",4.15763616873906e-05
+"Breast Invasive Carcinoma","Adrenocortical Carcinoma",4.21302848367362e-05
+"Cholangiocarcinoma","Bladder Urothelial Carcinoma",5.1843033002225e-05
+"Uveal Melanoma","Thymoma",7.968193033836e-05
+"Stomach Adenocarcinoma","Sarcoma",8.09512858270164e-05
+"Mesothelioma","Lung Adenocarcinoma",8.72302591808053e-05
+"Thymoma","Kidney Renal Papillary Cell Carcinoma",0.000117173837061538
+"Uterine Carcinosarcoma","Sarcoma",0.00011995708021652
+"Uterine Carcinosarcoma","Kidney Chromophobe",0.000125084382870194
+"Testicular Germ Cell Tumors","Esophageal Carcinoma",0.000150690951586917
+"Cholangiocarcinoma","Brain Glioblastoma",0.00015751621831396
+"Pancreatic Adenocarcinoma","Mesothelioma",0.00017312987689877
+"Testicular Germ Cell Tumors","Kidney Renal Papillary Cell Carcinoma",0.000254880137080072
+"Lung Squamous Cell Carcinoma","Kidney Chromophobe",0.000265438195934512
+"Lung Adenocarcinoma","Breast Invasive Carcinoma",0.000273823095735607
+"Skin Cutaneous Melanoma","Bladder Urothelial Carcinoma",0.000366631728023744
+"Sarcoma","Head and Neck Squamous Cell Carcinoma",0.000437997649544591
+"Pheochromocytoma","Lung Adenocarcinoma",0.000460095821633119
+"Stomach Adenocarcinoma","Kidney Chromophobe",0.000469127578287421
+"Mesothelioma","Kidney Renal Papillary Cell Carcinoma",0.000494076487525236
+"Kidney Renal Papillary Cell Carcinoma","Diffuse Large B-cell Lymphoma",0.000594327727844607
+"Pheochromocytoma","Lung Squamous Cell Carcinoma",0.000611902140849211
+"Testicular Germ Cell Tumors","Stomach Adenocarcinoma",0.000612315633267061
+"Mesothelioma","Esophageal Carcinoma",0.000690662840779891
+"Thyroid Carcinoma","Lung Adenocarcinoma",0.000723763659306434
+"Pancreatic Adenocarcinoma","Bladder Urothelial Carcinoma",0.000823524111075039
+"Testicular Germ Cell Tumors","Head and Neck Squamous Cell Carcinoma",0.000886486023392249
+"Cholangiocarcinoma","Brain Lower Grade Glioma",0.000890788300598107
+"Lung Squamous Cell Carcinoma","Brain Lower Grade Glioma",0.000986174820085921
+"Stomach Adenocarcinoma","Cholangiocarcinoma",0.00112156955806889
+"Uveal Melanoma","Mesothelioma",0.00125946287670793
+"Rectal Adenocarcinoma","Kidney Renal Papillary Cell Carcinoma",0.00128598289324835
+"Uveal Melanoma","Colon Adenocarcinoma",0.00128808213442178
+"Uterine Carcinosarcoma","Ovarian Serous Cystadenocarcinoma",0.00145873250759793
+"Sarcoma","Adrenocortical Carcinoma",0.00303149488789625
+"Esophageal Carcinoma","Bladder Urothelial Carcinoma",0.00343456921768287
+"Kidney Chromophobe","Head and Neck Squamous Cell Carcinoma",0.00472441656629142
+"Kidney Chromophobe","Adrenocortical Carcinoma",0.00485073658739079
+"Kidney Renal Papillary Cell Carcinoma","Cervical Squamous Cell Carcinoma",0.00518279636373998
+"Sarcoma","Lung Adenocarcinoma",0.00535628600206139
+"Thyroid Carcinoma","Pancreatic Adenocarcinoma",0.00566750841016214
+"Stomach Adenocarcinoma","Mesothelioma",0.00613293015533024
+"Head and Neck Squamous Cell Carcinoma","Cholangiocarcinoma",0.00624510893164258
+"Pheochromocytoma","Pancreatic Adenocarcinoma",0.00637850924676634
+"Uterine Carcinosarcoma","Pheochromocytoma",0.00645860022411721
+"Mesothelioma","Head and Neck Squamous Cell Carcinoma",0.00651105658598731
+"Uterine Carcinosarcoma","Cholangiocarcinoma",0.00660618632358927
+"Uveal Melanoma","Testicular Germ Cell Tumors",0.00695882182129124
+"Lung Squamous Cell Carcinoma","Brain Glioblastoma",0.0074119294928061
+"Pheochromocytoma","Esophageal Carcinoma",0.00867713910874944
+"Pancreatic Adenocarcinoma","Cholangiocarcinoma",0.0112427297440476
+"Uveal Melanoma","Rectal Adenocarcinoma",0.0117253780162581
+"Uterine Corpus Endometrial Carcinoma","Liver Hepatocellular Carcinoma",0.0161900674412118
+"Testicular Germ Cell Tumors","Bladder Urothelial Carcinoma",0.0172144063473935
+"Brain Lower Grade Glioma","Adrenocortical Carcinoma",0.0174696841097658
+"Lung Adenocarcinoma","Cholangiocarcinoma",0.0175354229008956
+"Sarcoma","Ovarian Serous Cystadenocarcinoma",0.0188754229763597
+"Pancreatic Adenocarcinoma","Kidney Chromophobe",0.018919302359627
+"Pancreatic Adenocarcinoma","Breast Invasive Carcinoma",0.0200520248579991
+"Sarcoma","Pancreatic Adenocarcinoma",0.0221839705440725
+"Lung Adenocarcinoma","Kidney Chromophobe",0.0232173852355421
+"Esophageal Carcinoma","Breast Invasive Carcinoma",0.0281171673893724
+"Brain Glioblastoma","Adrenocortical Carcinoma",0.0283283883282035
+"Stomach Adenocarcinoma","Lung Adenocarcinoma",0.0322571959861699
+"Lung Squamous Cell Carcinoma","Cholangiocarcinoma",0.0364758025855429
+"Thyroid Carcinoma","Esophageal Carcinoma",0.0441192281331624
+"Ovarian Serous Cystadenocarcinoma","Adrenocortical Carcinoma",0.045012689257652
+"Mesothelioma","Cervical Squamous Cell Carcinoma",0.0498746543327764
+"Stomach Adenocarcinoma","Pancreatic Adenocarcinoma",0.0512541153481533
+"Head and Neck Squamous Cell Carcinoma","Bladder Urothelial Carcinoma",0.0527245344308173
+"Esophageal Carcinoma","Cholangiocarcinoma",0.0562846100828658
+"Mesothelioma","Bladder Urothelial Carcinoma",0.0672600375509693
+"Cholangiocarcinoma","Adrenocortical Carcinoma",0.0700211957163119
+"Sarcoma","Esophageal Carcinoma",0.0718768804948203
+"Pheochromocytoma","Adrenocortical Carcinoma",0.0734947593655891
+"Testicular Germ Cell Tumors","Cervical Squamous Cell Carcinoma",0.0761856154933932
+"Kidney Chromophobe","Esophageal Carcinoma",0.0768997568771447
+"Stomach Adenocarcinoma","Bladder Urothelial Carcinoma",0.0962133892337657
+"Thyroid Carcinoma","Pheochromocytoma",0.100536223745371
+"Pheochromocytoma","Breast Invasive Carcinoma",0.106280358710094
+"Colon Adenocarcinoma","Cervical Squamous Cell Carcinoma",0.106760505707001
+"Skin Cutaneous Melanoma","Kidney Renal Papillary Cell Carcinoma",0.108042238912819
+"Lung Adenocarcinoma","Head and Neck Squamous Cell Carcinoma",0.108859126599686
+"Ovarian Serous Cystadenocarcinoma","Kidney Chromophobe",0.111924091144625
+"Uveal Melanoma","Cervical Squamous Cell Carcinoma",0.122168384213524
+"Stomach Adenocarcinoma","Esophageal Carcinoma",0.129820046788176
+"Skin Cutaneous Melanoma","Mesothelioma",0.137246345546261
+"Rectal Adenocarcinoma","Mesothelioma",0.169031549264598
+"Pancreatic Adenocarcinoma","Head and Neck Squamous Cell Carcinoma",0.176599323538964
+"Testicular Germ Cell Tumors","Skin Cutaneous Melanoma",0.179555773364806
+"Cholangiocarcinoma","Breast Invasive Carcinoma",0.185007984818018
+"Mesothelioma","Colon Adenocarcinoma",0.195115793016824
+"Head and Neck Squamous Cell Carcinoma","Esophageal Carcinoma",0.216131911793931
+"Uterine Carcinosarcoma","Brain Lower Grade Glioma",0.224591794746204
+"Thyroid Carcinoma","Cholangiocarcinoma",0.232704641534802
+"Skin Cutaneous Melanoma","Colon Adenocarcinoma",0.280565113658033
+"Sarcoma","Pheochromocytoma",0.299916195416541
+"Uterine Carcinosarcoma","Adrenocortical Carcinoma",0.318212521092479
+"Brain Lower Grade Glioma","Brain Glioblastoma",0.323963792040592
+"Testicular Germ Cell Tumors","Rectal Adenocarcinoma",0.337265219322313
+"Rectal Adenocarcinoma","Cervical Squamous Cell Carcinoma",0.34083286161342
+"Testicular Germ Cell Tumors","Colon Adenocarcinoma",0.37225068618125
+"Uveal Melanoma","Skin Cutaneous Melanoma",0.379681853565719
+"Kidney Chromophobe","Breast Invasive Carcinoma",0.383231529441778
+"Pheochromocytoma","Ovarian Serous Cystadenocarcinoma",0.383357784997225
+"Uterine Carcinosarcoma","Brain Glioblastoma",0.399749200394038
+"Skin Cutaneous Melanoma","Rectal Adenocarcinoma",0.412997841015636
+"Uveal Melanoma","Kidney Renal Papillary Cell Carcinoma",0.46175984612314
+"Thyroid Carcinoma","Sarcoma",0.484905849061939
+"Sarcoma","Cholangiocarcinoma",0.512429945433494
+"Thyroid Carcinoma","Kidney Chromophobe",0.514180140651279
+"Sarcoma","Breast Invasive Carcinoma",0.521986815137853
+"Pheochromocytoma","Kidney Chromophobe",0.561812134954715
+"Uterine Carcinosarcoma","Lung Squamous Cell Carcinoma",0.563634376929148
+"Kidney Chromophobe","Cholangiocarcinoma",0.575913486012262
+"Lung Squamous Cell Carcinoma","Adrenocortical Carcinoma",0.595020553298743
+"Ovarian Serous Cystadenocarcinoma","Cholangiocarcinoma",0.607345706273559
+"Rectal Adenocarcinoma","Colon Adenocarcinoma",0.61145599865845
+"Thyroid Carcinoma","Breast Invasive Carcinoma",0.694056323474181
+"Testicular Germ Cell Tumors","Mesothelioma",0.789880303843724
+"Stomach Adenocarcinoma","Head and Neck Squamous Cell Carcinoma",0.799949931833565
+"Skin Cutaneous Melanoma","Cervical Squamous Cell Carcinoma",0.822254663318846
+"Lung Adenocarcinoma","Esophageal Carcinoma",0.846188625198213
+"Pheochromocytoma","Cholangiocarcinoma",0.915899805851082
+"Thymoma","Diffuse Large B-cell Lymphoma",0.928697351991395
+"Sarcoma","Kidney Chromophobe",0.945908145282835
+"Pancreatic Adenocarcinoma","Esophageal Carcinoma",0.975154365853867
+"Pancreatic Adenocarcinoma","Lung Adenocarcinoma",0.975154365853867

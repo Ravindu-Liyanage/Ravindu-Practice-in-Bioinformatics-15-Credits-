@@ -1,0 +1,12 @@
+
+# Large local analysis files
+.RData
+*.rds
+*.RData
+analysis/SU2C2019_mrna_seq_fpkm_polya.txt
+data/
+*.txt
+
+# Local and large analysis files
+.RData
+6. SU2C Metastatic only analysis/data/SU2C2019_mrna_seq_fpkm_polya.txt

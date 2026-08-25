@@ -1,0 +1,25 @@
+"gene","test","p.value","p.adj"
+"AR","Wilcoxon rank-sum",0.7,0.988235294117647
+"NKX3-1","Wilcoxon rank-sum",0.4,0.8
+"TMPRSS2","Wilcoxon rank-sum",1,1
+"AMACR","Wilcoxon rank-sum",0.2,0.8
+"ERG","Wilcoxon rank-sum",0.7,0.988235294117647
+"MKI67","Wilcoxon rank-sum",0.7,0.988235294117647
+"CDH1","Wilcoxon rank-sum",0.4,0.8
+"VIM","Wilcoxon rank-sum",1,1
+"AURKA","Wilcoxon rank-sum",1,1
+"BRCA1","Wilcoxon rank-sum",0.4,0.8
+"BRCA2","Wilcoxon rank-sum",1,1
+"MYC","Wilcoxon rank-sum",0.7,0.988235294117647
+"PTEN","Wilcoxon rank-sum",0.1,0.8
+"RB1","Wilcoxon rank-sum",0.4,0.8
+"TTF1","Wilcoxon rank-sum",1,1
+"INSM1","Wilcoxon rank-sum",0.4,0.8
+"ACP3","Wilcoxon rank-sum",0.2,0.8
+"CHGA","Wilcoxon rank-sum",0.4,0.8
+"CHGB","Wilcoxon rank-sum",0.7,0.988235294117647
+"TFRC","Wilcoxon rank-sum",0.4,0.8
+"NCAM1","Wilcoxon rank-sum",0.2,0.8
+"SCG2","Wilcoxon rank-sum",1,1
+"SYP","Wilcoxon rank-sum",1,1
+"FOLH1","Wilcoxon rank-sum",0.0999999999999999,0.8

@@ -1,0 +1,2 @@
+"Comparison","Numerator","Denominator","Total_DE_Genes","Upregulated","Downregulated","padj_Cutoff","log2FC_Cutoff"
+"KO_treated_vs_WT_treated","KO_treated","WT_treated",1671,801,870,0.05,0.58

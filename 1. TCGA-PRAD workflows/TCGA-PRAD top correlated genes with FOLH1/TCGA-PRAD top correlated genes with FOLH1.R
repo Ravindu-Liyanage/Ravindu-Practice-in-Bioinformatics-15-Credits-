@@ -1,0 +1,277 @@
+# ==============================================================================
+# Ravindu: Identification of Genes Correlated with FOLH1 Expression in TCGA-PRAD
+# =============================================================================
+
+library(TCGAbiolinks)
+library(DESeq2)
+library(SummarizedExperiment)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(ggpubr)
+library(openxlsx)
+library(survival)
+library(survminer)
+library(pheatmap)
+
+outdir <- "output"
+dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
+
+theme_nature <- function(base_size = 14, base_family = "Arial") {
+  theme_classic(base_size = base_size, base_family = base_family) +
+    theme(
+      plot.title = element_text(face = "bold", hjust = 0.5, size = base_size + 2),
+      axis.title = element_text(face = "bold", colour = "black"),
+      axis.text = element_text(colour = "black"),
+      axis.line = element_line(linewidth = 0.7, colour = "black"),
+      axis.ticks = element_line(linewidth = 0.6, colour = "black"),
+      legend.title = element_blank(),
+      legend.background = element_blank(),
+      legend.key = element_blank(),
+      panel.border = element_blank(),
+      panel.grid = element_blank(),
+      strip.background = element_rect(fill = "white", colour = "black"),
+      strip.text = element_text(face = "bold")
+    )
+}
+
+theme_set(theme_nature())
+
+nature_cols <- c(
+  "#4DBBD5FF", "#E64B35FF", "#00A087FF", "#3C5488FF",
+  "#F39B7FFF", "#8491B4FF", "#91D1C2FF", "#DC0000FF"
+)
+
+# =================
+# STEP 1: LOAD DATA
+# =================
+
+data <- readRDS("TCGA_panCancer_FOLH1.rds")
+meta <- as.data.frame(colData(data))
+
+# Keep only PRAD
+prad_idx <- as.character(meta$project) == "TCGA-PRAD"
+data_prad <- data[, prad_idx]
+meta_prad <- as.data.frame(colData(data_prad))
+
+# Keep PRIMARY and SOLID TISSUE NORMAL before normalization/VST
+stopifnot("tumor_descriptor" %in% colnames(meta_prad))
+keep_idx <- as.character(meta_prad$tumor_descriptor) %in% c("Primary", "Not Applicable")
+
+data_prad_keep <- data_prad[, keep_idx]
+meta_prad_keep <- as.data.frame(colData(data_prad_keep))
+
+# Make sure rownames(metadata) match colnames(counts)
+rownames(meta_prad_keep) <- colnames(data_prad_keep)
+
+count_mat <- assay(data_prad_keep)
+gene_annot <- as.data.frame(rowData(data_prad_keep))
+target_gene <- "FOLH1"
+
+# =============================
+# STEP 2: NORMALIZATION + VST
+# =============================
+
+dds <- DESeqDataSetFromMatrix(
+  countData = count_mat,
+  colData = meta_prad_keep,
+  design = ~ 1
+)
+
+dds <- dds[rowSums(counts(dds)) > 1, ]
+dds <- estimateSizeFactors(dds)
+
+norm_mat <- counts(dds, normalized = TRUE)
+vsd <- vst(dds, blind = TRUE)
+expr_mat <- assay(vsd)
+
+# Keep only columns that survived exactly in expr_mat
+meta_prad_keep <- meta_prad_keep[colnames(expr_mat), , drop = FALSE]
+
+#GENE ANNOTATION
+gene_annot <- gene_annot[rownames(dds), , drop = FALSE]
+gene_symbols <- if ("gene_name" %in% colnames(gene_annot)) {
+  gene_annot$gene_name
+} else if ("symbol" %in% colnames(gene_annot)) {
+  gene_annot$symbol
+} else {
+  rownames(gene_annot)
+}
+
+rownames(expr_mat) <- rownames(dds)
+stopifnot(target_gene %in% gene_symbols)
+
+folh1_idx <- which(gene_symbols == target_gene)
+stopifnot(length(folh1_idx) >= 1)
+folh1_idx <- folh1_idx[1]
+
+# ==============================
+# STEP 3: DEFINE SAMPLE GROUPS
+# ==============================
+
+tumor_samples <- rownames(meta_prad_keep)[as.character(meta_prad_keep$tumor_descriptor) == "Primary"]
+normal_samples <- rownames(meta_prad_keep)[as.character(meta_prad_keep$tumor_descriptor) == "Not Applicable"]
+
+tumor_samples <- intersect(tumor_samples, colnames(expr_mat))
+normal_samples <- intersect(normal_samples, colnames(expr_mat))
+
+stopifnot(length(tumor_samples) > 2)
+stopifnot(length(normal_samples) > 2)
+
+# =============================================
+# STEP 4: CREATE A CORRELATION FUNCTION AND RUN
+# =============================================
+
+cor_with_target <- function(mat, target_idx, sample_ids, method = "pearson") {
+  sample_ids <- intersect(sample_ids, colnames(mat))
+  if (length(sample_ids) < 3) stop("Not enough valid samples for correlation.")
+  
+  submat <- mat[, sample_ids, drop = FALSE]
+  target <- as.numeric(submat[target_idx, ])
+  gene_ids <- setdiff(rownames(submat), rownames(submat)[target_idx])
+  
+  res <- lapply(gene_ids, function(g) {
+    x <- as.numeric(submat[g, ])
+    ok <- is.finite(x) & is.finite(target)
+    if (sum(ok) < 3) {
+      return(data.frame(gene = g, cor = NA_real_, p.value = NA_real_))
+    }
+    ct <- suppressWarnings(cor.test(x[ok], target[ok], method = method))
+    data.frame(
+      gene = g,
+      cor = unname(ct$estimate),
+      p.value = ct$p.value
+    )
+  })
+  
+  bind_rows(res) %>%
+    mutate(p.adj = p.adjust(p.value, method = "BH")) %>%
+    arrange(desc(cor))
+}
+
+
+# RUN CORRELATIONS
+tumor_cor <- cor_with_target(expr_mat, folh1_idx, tumor_samples, method = "pearson")
+normal_cor <- cor_with_target(expr_mat, folh1_idx, normal_samples, method = "pearson")
+
+tumor_cor$gene_symbol <- gene_symbols[match(tumor_cor$gene, rownames(expr_mat))]
+normal_cor$gene_symbol <- gene_symbols[match(normal_cor$gene, rownames(expr_mat))]
+
+tumor_cor <- tumor_cor %>% filter(!is.na(gene_symbol), gene_symbol != target_gene)
+normal_cor <- normal_cor %>% filter(!is.na(gene_symbol), gene_symbol != target_gene)
+
+write.csv(
+  tumor_cor,
+  file = file.path(outdir, "FOLH1_correlations_primary_tumor.csv"),
+  row.names = FALSE
+)
+
+write.csv(
+  normal_cor,
+  file = file.path(outdir, "FOLH1_correlations_solid_normal.csv"),
+  row.names = FALSE
+)
+
+# TOP HITS
+top_n <- 15
+
+top_tumor_pos <- tumor_cor %>% arrange(desc(cor)) %>% slice_head(n = top_n)
+top_tumor_neg <- tumor_cor %>% arrange(cor) %>% slice_head(n = top_n)
+top_normal_pos <- normal_cor %>% arrange(desc(cor)) %>% slice_head(n = top_n)
+top_normal_neg <- normal_cor %>% arrange(cor) %>% slice_head(n = top_n)
+
+plot_df <- bind_rows(
+  top_tumor_pos %>% mutate(group = "Primary Tumor", direction = "Positive"),
+  top_tumor_neg %>% mutate(group = "Primary Tumor", direction = "Negative"),
+  top_normal_pos %>% mutate(group = "Solid Tissue Normal", direction = "Positive"),
+  top_normal_neg %>% mutate(group = "Solid Tissue Normal", direction = "Negative")
+) %>%
+  mutate(
+    label = paste0(gene_symbol, " (", round(cor, 3), ")"),
+    label = factor(label, levels = rev(unique(label)))
+  )
+
+p1 <- ggplot(plot_df, aes(x = cor, y = label, fill = direction)) +
+  geom_col(width = 0.75) +
+  facet_wrap(~group, scales = "free_y") +
+  scale_fill_manual(values = c("Positive" = "#E64B35FF", "Negative" = "#4DBBD5FF")) +
+  labs(
+    x = "Correlation with FOLH1",
+    y = NULL,
+    title = "Top genes correlated with FOLH1 in TCGA-PRAD"
+  ) +
+  theme_nature()
+
+ggsave(
+  file.path(outdir, "FOLH1_top_correlations_by_group.png"),
+  p1, width = 11, height = 8, dpi = 300
+)
+
+# ====================================
+# STEP 5: TUMOR VS NORMAL COMPARISON
+# ====================================
+
+common_genes <- intersect(tumor_cor$gene, normal_cor$gene)
+
+comp_df <- data.frame(
+  gene = common_genes,
+  tumor_cor = tumor_cor$cor[match(common_genes, tumor_cor$gene)],
+  normal_cor = normal_cor$cor[match(common_genes, normal_cor$gene)],
+  gene_symbol = tumor_cor$gene_symbol[match(common_genes, tumor_cor$gene)]
+)
+
+p2 <- ggplot(comp_df, aes(x = normal_cor, y = tumor_cor)) +
+  geom_point(alpha = 0.4, size = 1) +
+  geom_vline(xintercept = 0, linetype = 2, color = "grey50") +
+  geom_hline(yintercept = 0, linetype = 2, color = "grey50") +
+  labs(
+    x = "Correlation in Solid Tissue Normal",
+    y = "Correlation in Primary Tumor",
+    title = "FOLH1 co-expression: tumor vs normal"
+  ) +
+  theme_nature()
+
+ggsave(
+  file.path(outdir, "FOLH1_tumor_vs_normal_scatter.png"),
+  p2, width = 7, height = 6, dpi = 300
+)
+
+# ======================
+# STEP 6: PLOT HEATMAP
+# ======================
+
+top_shared <- comp_df %>%
+  mutate(abs_sum = abs(tumor_cor) + abs(normal_cor)) %>%
+  arrange(desc(abs_sum)) %>%
+  slice_head(n = 30)
+
+heat_genes <- top_shared$gene
+heat_idx <- c(folh1_idx, match(heat_genes, rownames(expr_mat)))
+heat_idx <- heat_idx[!is.na(heat_idx)]
+
+heat_mat <- expr_mat[heat_idx, c(tumor_samples, normal_samples), drop = FALSE]
+
+heat_symbols <- c(
+  target_gene,
+  top_shared$gene_symbol[match(rownames(heat_mat)[-1], top_shared$gene)]
+)
+rownames(heat_mat) <- heat_symbols
+
+annotation_col <- data.frame(
+  Tissue = factor(c(
+    rep("Primary Tumor", length(tumor_samples)),
+    rep("Solid Tissue Normal", length(normal_samples))
+  ))
+)
+rownames(annotation_col) <- c(tumor_samples, normal_samples)
+
+pheatmap::pheatmap(
+  heat_mat,
+  scale = "row",
+  annotation_col = annotation_col,
+  show_colnames = FALSE,
+  main = "Top FOLH1-correlated genes",
+  filename = file.path(outdir, "FOLH1_heatmap_tumor_normal.png"),
+  width = 10,
+  height = 8
+)

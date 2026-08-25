@@ -1,0 +1,4 @@
+"test","grouping","n","n_groups","statistic","p_value","p_adj_BH","analysis","p_adj_across_three_analyses_BH"
+"Kruskal-Wallis","Low vs Intermediate vs High",216,3,4.86190932471754,0.0879528272368714,0.0879528272368714,"Gleason score",0.0879528272368714
+"Wilcoxon rank-sum","No vs Yes",232,2,3778,9.5981475300988e-07,9.5981475300988e-07,"Neuroendocrine features",2.87944425902964e-06
+"Wilcoxon rank-sum","Negative vs Positive",266,2,7046,0.00498720416678373,0.00498720416678373,"ETS fusion status",0.00748080625017559

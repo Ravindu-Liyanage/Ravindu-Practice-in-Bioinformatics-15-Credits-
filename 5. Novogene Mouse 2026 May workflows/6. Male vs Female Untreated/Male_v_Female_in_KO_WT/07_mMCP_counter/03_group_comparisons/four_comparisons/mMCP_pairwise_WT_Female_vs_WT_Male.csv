@@ -1,0 +1,17 @@
+"comparison","comparison_label","cell_type","group_1","group_2","n_group_1","n_group_2","statistic","p.value","p.adj"
+"WT_Female_vs_WT_Male","WT female vs WT male","B derived","WT_Female","WT_Male",6,4,17,0.337355651776362,0.672321677886092
+"WT_Female_vs_WT_Male","WT female vs WT male","Basophils","WT_Female","WT_Male",6,4,14,0.749119133000595,0.936398916250744
+"WT_Female_vs_WT_Male","WT female vs WT male","CD8 T cells","WT_Female","WT_Male",6,4,3,0.0699543585800103,0.41182278305714
+"WT_Female_vs_WT_Male","WT female vs WT male","Endothelial cells","WT_Female","WT_Male",6,4,15,0.594032340599042,0.891048510898562
+"WT_Female_vs_WT_Male","WT female vs WT male","Eosinophils","WT_Female","WT_Male",6,4,8,0.358571561539249,0.672321677886092
+"WT_Female_vs_WT_Male","WT female vs WT male","Fibroblasts","WT_Female","WT_Male",6,4,12,1,1
+"WT_Female_vs_WT_Male","WT female vs WT male","Granulocytes","WT_Female","WT_Male",6,4,16,0.286868651325368,0.672321677886092
+"WT_Female_vs_WT_Male","WT female vs WT male","Lymphatics","WT_Female","WT_Male",6,4,4,0.109819408815237,0.41182278305714
+"WT_Female_vs_WT_Male","WT female vs WT male","Mast cells","WT_Female","WT_Male",6,4,10,0.746127778503757,0.936398916250744
+"WT_Female_vs_WT_Male","WT female vs WT male","Memory B cells","WT_Female","WT_Male",6,4,16,0.286868651325368,0.672321677886092
+"WT_Female_vs_WT_Male","WT female vs WT male","Monocytes","WT_Female","WT_Male",6,4,12,1,1
+"WT_Female_vs_WT_Male","WT female vs WT male","Monocytes / macrophages","WT_Female","WT_Male",6,4,4,0.109819408815237,0.41182278305714
+"WT_Female_vs_WT_Male","WT female vs WT male","NK cells","WT_Female","WT_Male",6,4,8,0.45554509378933,0.759241822982217
+"WT_Female_vs_WT_Male","WT female vs WT male","Neutrophils","WT_Female","WT_Male",6,4,12,NA,NA
+"WT_Female_vs_WT_Male","WT female vs WT male","T cells","WT_Female","WT_Male",6,4,4,0.109819408815237,0.41182278305714
+"WT_Female_vs_WT_Male","WT female vs WT male","Vessels","WT_Female","WT_Male",6,4,11,0.915106034420506,1

@@ -1,0 +1,448 @@
+# ========================================================================
+# Ravindu : Immune pathway analysis by FOLH1 gene expression in TCGA-PRAD
+# ========================================================================
+
+library(SummarizedExperiment)
+library(dplyr)
+library(tibble)
+library(tidyr)
+library(ggplot2)
+library(pheatmap)
+library(edgeR)
+library(limma)
+library(GSVA)
+library(openxlsx)
+
+outdir <- "output"
+dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
+
+# collect all tables here and write a single workbook at the end
+excel_sheets <- list()
+
+# -------------
+# 1) Load data
+# -------------
+
+data <- readRDS("TCGA_panCancer_FOLH1.rds")
+count_mat <- assay(data)
+meta <- as.data.frame(colData(data))
+gene_annot <- as.data.frame(rowData(data))
+
+# Subset TCGA-PRAD
+meta_prad <- meta[meta$project == "TCGA-PRAD", , drop = FALSE]
+prad_counts <- count_mat[, rownames(meta_prad), drop = FALSE]
+gene_annot_prad <- gene_annot
+
+# Keep only primary tumors
+if ("sample_type" %in% colnames(meta_prad)) {
+  keep <- meta_prad$sample_type == "Primary Tumor"
+  meta_prad <- meta_prad[keep, , drop = FALSE]
+  prad_counts <- prad_counts[, rownames(meta_prad), drop = FALSE]
+}
+
+# Keep Ensembl IDs in counts
+prad_counts <- prad_counts[rowSums(prad_counts, na.rm = TRUE) > 0, ]
+
+# Ensure gene annotation rows match count matrix rows
+gene_annot_prad <- gene_annot_prad[rownames(prad_counts), , drop = FALSE]
+
+# -------------------------
+# 2) Normalize expression
+# -------------------------
+dge <- DGEList(counts = prad_counts)
+dge <- calcNormFactors(dge)
+logcpm_ens <- cpm(dge, log = TRUE, prior.count = 1)
+
+excel_sheets[["PRAD_logCPM_Ensembl"]] <- as.data.frame(logcpm_ens)
+
+# ---------------------------------------------
+# 3) Define target gene and find its Ensembl row
+# ----------------------------------------------
+
+candidate <- "FOLH1"   # change this if needed
+
+# Find which annotation column contains gene symbols
+symbol_col <- intersect(c("gene_name", "external_gene_name", "symbol"), colnames(gene_annot_prad))
+
+if (length(symbol_col) == 0) {
+  stop("No gene symbol column found in rowData(data). Expected one of: gene_name, external_gene_name, symbol")
+}
+
+symbol_col <- symbol_col[1]
+
+# Optional: if versioned Ensembl IDs exist elsewhere, keep rownames as the assay IDs
+gene_annot_prad$gene_symbol <- as.character(gene_annot_prad[[symbol_col]])
+
+# Find matching Ensembl row(s) for candidate gene
+candidate_rows <- rownames(gene_annot_prad)[gene_annot_prad$gene_symbol == candidate]
+
+if (length(candidate_rows) == 0) {
+  stop(paste0("Candidate gene ", candidate, " not found in rowData symbol column: ", symbol_col))
+}
+
+# If multiple rows match, keep the one with highest mean expression
+if (length(candidate_rows) > 1) {
+  candidate_means <- rowMeans(logcpm_ens[candidate_rows, , drop = FALSE], na.rm = TRUE)
+  candidate_ens <- names(which.max(candidate_means))
+} else {
+  candidate_ens <- candidate_rows
+}
+
+message("Using Ensembl row for ", candidate, ": ", candidate_ens)
+
+# ------------------------------------------------------
+# 4) Define High/Low groups from target-gene expression
+# -----------------------------------------------------
+
+meta_prad$target_gene <- candidate
+meta_prad$target_ensembl <- candidate_ens
+meta_prad$target_expr <- as.numeric(logcpm_ens[candidate_ens, rownames(meta_prad)])
+
+cutoff <- median(meta_prad$target_expr, na.rm = TRUE)
+
+meta_prad$expr_group <- ifelse(meta_prad$target_expr >= cutoff, "High", "Low")
+meta_prad$expr_group <- factor(meta_prad$expr_group, levels = c("Low", "High"))
+
+print(table(meta_prad$expr_group))
+
+meta_prad_export <- meta_prad %>%
+  mutate(across(where(is.list), ~ vapply(.x, toString, character(1))))
+
+excel_sheets[[paste0("PRAD_metadata_", candidate, "_HighLow")]] <- meta_prad_export
+
+# --------------------------------------------------------------
+# 5) Convert Ensembl-based matrix to gene-symbol matrix for GSVA
+# --------------------------------------------------------------
+
+expr_df <- as.data.frame(logcpm_ens)
+expr_df$ensembl_id <- rownames(expr_df)
+expr_df$gene_symbol <- gene_annot_prad$gene_symbol[match(expr_df$ensembl_id, rownames(gene_annot_prad))]
+
+expr_df <- expr_df %>%
+  filter(!is.na(gene_symbol), gene_symbol != "")
+
+expr_df$mean_expr <- rowMeans(expr_df[, rownames(meta_prad), drop = FALSE], na.rm = TRUE)
+
+expr_df <- expr_df %>%
+  arrange(desc(mean_expr)) %>%
+  distinct(gene_symbol, .keep_all = TRUE)
+
+logcpm_symbol <- as.matrix(expr_df[, rownames(meta_prad), drop = FALSE])
+rownames(logcpm_symbol) <- expr_df$gene_symbol
+
+excel_sheets[["PRAD_logCPM_GeneSymbol"]] <- as.data.frame(logcpm_symbol)
+
+# -----------------------------------------
+# 6) Define immune-only pathway gene sets
+# -----------------------------------------
+immune_sets <- list(
+  HALLMARK_INTERFERON_GAMMA_RESPONSE = c(
+    "STAT1","IRF1","CXCL9","CXCL10","IDO1","HLA-A","HLA-B","HLA-C","B2M","PSMB8","PSMB9","TAP1","TAP2","CD274"
+  ),
+  HALLMARK_INTERFERON_ALPHA_RESPONSE = c(
+    "ISG15","IFIT1","IFIT2","IFIT3","MX1","OAS1","OAS2","OAS3","IFI6","IFI27","RSAD2","STAT2"
+  ),
+  HALLMARK_INFLAMMATORY_RESPONSE = c(
+    "IL1B","TNF","NFKBIA","CXCL8","CCL2","CCL5","ICAM1","PTGS2","JUN","FOS","PLAUR","SERPINE1"
+  ),
+  HALLMARK_TNFA_SIGNALING_VIA_NFKB = c(
+    "TNF","NFKBIA","NFKBIZ","CXCL2","CXCL3","CXCL8","IL6","ICAM1","JUNB","BCL3","RELB","TRAF1"
+  ),
+  HALLMARK_COMPLEMENT = c(
+    "C1QA","C1QB","C1QC","C2","C3","C4A","C4B","CFB","CFD","CR1","SERPING1"
+  ),
+  HALLMARK_ALLOGRAFT_REJECTION = c(
+    "IFNG","GZMB","PRF1","CD8A","HLA-A","HLA-B","HLA-C","B2M","TAP1","TAP2","CD74","CIITA","CXCL9","CXCL10"
+  ),
+  ANTIGEN_PRESENTATION_MHC_I = c(
+    "HLA-A","HLA-B","HLA-C","B2M","TAP1","TAP2","ERAP1","PSMB8","PSMB9","NLRC5"
+  ),
+  ANTIGEN_PRESENTATION_MHC_II = c(
+    "HLA-DRA","HLA-DRB1","HLA-DPA1","HLA-DPB1","HLA-DQA1","HLA-DQB1","CD74","CIITA"
+  ),
+  T_CELL_CYTOTOXICITY = c(
+    "CD8A","CD8B","NKG7","GNLY","PRF1","GZMB","GZMH","KLRD1","CTSW"
+  ),
+  T_CELL_ACTIVATION = c(
+    "CD3D","CD3E","CD3G","TRAC","LCK","ZAP70","LAT","IL7R","LTB"
+  ),
+  NK_CELL_RESPONSE = c(
+    "NKG7","GNLY","KLRD1","FCGR3A","TYROBP","TRAC","PRF1","GZMB"
+  ),
+  CHECKPOINT_PATHWAY = c(
+    "PDCD1","CD274","PDCD1LG2","CTLA4","LAG3","TIGIT","HAVCR2","IDO1"
+  ),
+  MACROPHAGE_MONOCYTE = c(
+    "LYZ","CSF1R","TYROBP","AIF1","FCER1G","SPI1","CTSB","SAT1","FCGR3A"
+  ),
+  CHEMOKINE_SIGNALING = c(
+    "CXCL9","CXCL10","CXCL11","CCL2","CCL3","CCL4","CCL5","CCR5","CXCR3","CXCR4"
+  ),
+  IL6_JAK_STAT3_SIGNALING = c(
+    "IL6","IL6R","JAK1","JAK2","STAT3","SOCS3","FOS","JUN","CCL2"
+  )
+)
+
+immune_sets <- lapply(immune_sets, function(gs) intersect(gs, rownames(logcpm_symbol)))
+immune_sets <- immune_sets[lengths(immune_sets) >= 5]
+
+if (length(immune_sets) == 0) {
+  stop("No immune gene sets left after intersecting with the gene-symbol expression matrix.")
+}
+
+immune_sets_used <- data.frame(
+  pathway = names(immune_sets),
+  n_genes = lengths(immune_sets)
+)
+
+excel_sheets[["Immune_gene_sets_used"]] <- immune_sets_used
+
+# -----------------------------------
+# 7) Run GSVA on immune-only pathways
+# -----------------------------------
+
+gsva_param <- gsvaParam(
+  exprData = logcpm_symbol,
+  geneSets = immune_sets,
+  kcdf = "Gaussian"
+)
+
+gsva_scores <- gsva(gsva_param)
+gsva_scores <- as.data.frame(gsva_scores)
+
+excel_sheets[[paste0("GSVA_immune_pathways_", candidate)]] <- gsva_scores
+
+# -----------------------------------------------
+# 8) Differential pathway analysis: High vs Low
+# -----------------------------------------------
+
+design <- model.matrix(~ expr_group, data = meta_prad)
+
+fit <- lmFit(as.matrix(gsva_scores), design)
+fit <- eBayes(fit)
+
+pathway_res <- topTable(fit, coef = 2, number = Inf, sort.by = "P")
+pathway_res$pathway <- rownames(pathway_res)
+pathway_res$direction <- ifelse(pathway_res$logFC > 0,
+                                paste0(candidate, "_High"),
+                                paste0(candidate, "_Low"))
+
+excel_sheets[[paste0("ImmunePathways_", candidate, "_High_vs_Low")]] <- pathway_res
+
+sig_pathways <- pathway_res %>%
+  filter(adj.P.Val < 0.05)
+
+excel_sheets[[paste0("ImmunePathways_significant_", candidate)]] <- sig_pathways
+
+up_pathways <- pathway_res %>%
+  filter(adj.P.Val < 0.05, logFC > 0)
+
+down_pathways <- pathway_res %>%
+  filter(adj.P.Val < 0.05, logFC < 0)
+
+excel_sheets[[paste0("ImmunePathways_up_in_", candidate, "_High")]] <- up_pathways
+excel_sheets[[paste0("ImmunePathways_up_in_", candidate, "_Low")]] <- down_pathways
+
+# ----------------------------------------
+# 9) Plot boxplots for all immune pathways
+# ----------------------------------------
+
+score_df <- meta_prad %>%
+  dplyr::select(expr_group) %>%
+  tibble::rownames_to_column("sample_id") %>%
+  left_join(
+    as.data.frame(t(gsva_scores)) %>%
+      tibble::rownames_to_column("sample_id"),
+    by = "sample_id"
+  )
+
+sig_names <- rownames(gsva_scores)
+
+score_long <- tidyr::pivot_longer(
+  score_df,
+  cols = all_of(sig_names),
+  names_to = "pathway",
+  values_to = "score"
+)
+
+pvals <- score_long %>%
+  group_by(pathway) %>%
+  summarise(
+    p.value = wilcox.test(score ~ expr_group)$p.value,
+    .groups = "drop"
+  ) %>%
+  mutate(label = paste0("p = ", signif(p.value, 3)))
+
+label_df <- score_long %>%
+  group_by(pathway) %>%
+  summarise(
+    x = 1,
+    y = max(score, na.rm = TRUE) * 0.9,
+    .groups = "drop"
+  ) %>%
+  left_join(pvals, by = "pathway")
+
+excel_sheets[[paste0("GSVA_scores_long_", candidate)]] <- score_long
+excel_sheets[[paste0("GSVA_wilcox_pvalues_", candidate)]] <- pvals
+
+p1 <- ggplot(score_long, aes(x = expr_group, y = score, fill = expr_group)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.15, size = 0.8, alpha = 0.7) +
+  facet_wrap(~ pathway, scales = "free_y") +
+  theme_classic() +
+  theme(legend.position = "none") +
+  labs(
+    x = paste0(candidate, " expression group"),
+    y = "GSVA immune pathway score",
+    title = paste0("Immune pathway activity by ", candidate, " High vs Low")
+  ) +
+  scale_fill_manual(values = c("Low" = "#4575B4", "High" = "#D73027")) +
+  geom_text(
+    data = label_df,
+    aes(x = x, y = y, label = label),
+    inherit.aes = FALSE,
+    hjust = 0,
+    vjust = 1,
+    size = 3
+  )
+
+ggsave(
+  file.path(outdir, paste0("ImmunePathway_boxplots_", candidate, ".png")),
+  p1, width = 14, height = 10, dpi = 300
+)
+
+# ------------------------------------------
+# 10) Heatmap of significant immune pathways
+# ------------------------------------------
+
+if (nrow(sig_pathways) > 1) {
+  heat_mat <- as.matrix(gsva_scores[rownames(gsva_scores) %in% sig_pathways$pathway, , drop = FALSE])
+  
+  ann_col <- data.frame(expr_group = meta_prad$expr_group)
+  rownames(ann_col) <- rownames(meta_prad)
+  ann_col <- ann_col[colnames(heat_mat), , drop = FALSE]
+  
+  png(file.path(outdir, paste0("ImmunePathway_heatmap_significant_", candidate, ".png")),
+      width = 10, height = 8, units = "in", res = 300)
+  
+  pheatmap(
+    heat_mat,
+    scale = "row",
+    annotation_col = ann_col,
+    show_colnames = FALSE,
+    main = paste0("Significant immune pathways: ", candidate, " High vs Low")
+  )
+  
+  dev.off()
+}
+
+# -----------------------------------
+# 11) Volcano plot of pathway results
+# ----------------------------------
+
+volcano_df <- pathway_res %>%
+  mutate(
+    negLog10FDR = -log10(adj.P.Val),
+    Significant = ifelse(adj.P.Val < 0.05, "Yes", "No")
+  )
+
+excel_sheets[[paste0("Volcano_data_", candidate)]] <- volcano_df
+
+p2 <- ggplot(volcano_df, aes(x = logFC, y = negLog10FDR, color = Significant)) +
+  geom_point(size = 2, alpha = 0.8) +
+  theme_classic() +
+  scale_color_manual(values = c("No" = "grey70", "Yes" = "red3")) +
+  labs(
+    title = paste0("Immune pathways: ", candidate, " High vs Low"),
+    x = "logFC (High vs Low)",
+    y = "-log10(FDR)"
+  ) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_hline(yintercept = -log10(0.05), linetype = "dashed")
+
+ggsave(
+  file.path(outdir, paste0("ImmunePathway_volcano_", candidate, ".png")),
+  p2, width = 7, height = 6, dpi = 300
+)
+
+# --------------------------------
+# 12) Save top pathways separately
+# --------------------------------
+
+top_up <- pathway_res %>%
+  arrange(desc(logFC)) %>%
+  head(10)
+
+top_down <- pathway_res %>%
+  arrange(logFC) %>%
+  head(10)
+
+excel_sheets[[paste0("Top10_up_in_", candidate, "_High")]] <- top_up
+excel_sheets[[paste0("Top10_up_in_", candidate, "_Low")]] <- top_down
+
+# -----------------------
+# 13) Final sample table
+# -----------------------
+
+final_sample_table <- meta_prad %>%
+  dplyr::select(where(~ !is.list(.x)))
+
+excel_sheets[[paste0("PRAD_final_sample_table_", candidate, "_HighLow")]] <- final_sample_table
+
+# ---------------------------------------
+# 14) Write one big workbook at the end
+# ---------------------------------------
+
+safe_sheet_name <- function(x, existing = character()) {
+  x <- gsub("[\\\\/:*?\\[\\]]", "_", x)
+  x <- substr(x, 1, 31)
+  
+  if (!(x %in% existing)) return(x)
+  
+  base <- substr(x, 1, 28)
+  i <- 1
+  new_x <- paste0(base, "_", i)
+  
+  while (new_x %in% existing) {
+    i <- i + 1
+    new_x <- paste0(base, "_", i)
+  }
+  
+  substr(new_x, 1, 31)
+}
+
+skip_sheet_patterns <- c(
+  "^PRAD_logCPM_Ensembl$",
+  "^PRAD_logCPM_GeneSymbol$",
+  "^GSVA_scores_long_",
+  "^GSVA_immune_pathways_",
+  "^PRAD_metadata_.*_HighLow$"
+)
+
+keep_sheets <- names(excel_sheets)[
+  !Reduce(
+    `|`,
+    lapply(skip_sheet_patterns, function(p) grepl(p, names(excel_sheets)))
+  )
+]
+
+excel_sheets_small <- excel_sheets[keep_sheets]
+
+wb <- createWorkbook()
+existing_names <- character()
+
+for (nm in names(excel_sheets_small)) {
+  sn <- safe_sheet_name(nm, existing_names)
+  addWorksheet(wb, sn)
+  writeData(wb, sheet = sn, x = excel_sheets_small[[nm]], rowNames = FALSE)
+  existing_names <- c(existing_names, sn)
+}
+
+saveWorkbook(
+  wb,
+  file = file.path(outdir, paste0("ImmunePathway_analysis_", candidate, "_complete.xlsx")),
+  overwrite = TRUE
+)
+
+cat("Workbook created successfully:\n")
+cat(file.path(outdir, paste0("ImmunePathway_analysis_", candidate, "_complete.xlsx")), "\n")

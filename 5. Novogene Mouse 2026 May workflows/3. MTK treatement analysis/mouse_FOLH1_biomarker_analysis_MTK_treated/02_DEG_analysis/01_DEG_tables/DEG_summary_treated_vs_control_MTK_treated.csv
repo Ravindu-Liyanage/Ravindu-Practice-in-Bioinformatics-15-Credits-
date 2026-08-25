@@ -1,0 +1,2 @@
+"Comparison","Total_DE_Genes","Upregulated","Downregulated","padj_Cutoff","log2FC_Cutoff"
+"treated_vs_control",14,8,6,0.05,0.58

@@ -1,0 +1,17 @@
+"comparison","comparison_label","cell_type","group_1","group_2","n_group_1","n_group_2","statistic","p.value","p.adj"
+"WT_Female_vs_KO_Female","WT female vs KO female","B derived","WT_Female","KO_Female",6,3,11,0.698535358303339,0.798326123775244
+"WT_Female_vs_KO_Female","WT female vs KO female","Basophils","WT_Female","KO_Female",6,3,11,0.698535358303339,0.798326123775244
+"WT_Female_vs_KO_Female","WT female vs KO female","CD8 T cells","WT_Female","KO_Female",6,3,3,0.155580347792198,0.497857112935034
+"WT_Female_vs_KO_Female","WT female vs KO female","Endothelial cells","WT_Female","KO_Female",6,3,8,0.897278961260083,0.957097558677422
+"WT_Female_vs_KO_Female","WT female vs KO female","Eosinophils","WT_Female","KO_Female",6,3,5.5,0.357385716037527,0.502345490415443
+"WT_Female_vs_KO_Female","WT female vs KO female","Fibroblasts","WT_Female","KO_Female",6,3,18,0.0281858021479073,0.225486417183259
+"WT_Female_vs_KO_Female","WT female vs KO female","Granulocytes","WT_Female","KO_Female",6,3,12,0.376759117811582,0.502345490415443
+"WT_Female_vs_KO_Female","WT female vs KO female","Lymphatics","WT_Female","KO_Female",6,3,2,0.0932899561836047,0.497546432979225
+"WT_Female_vs_KO_Female","WT female vs KO female","Mast cells","WT_Female","KO_Female",6,3,13,0.34523107177184,0.502345490415443
+"WT_Female_vs_KO_Female","WT female vs KO female","Memory B cells","WT_Female","KO_Female",6,3,12,0.376759117811582,0.502345490415443
+"WT_Female_vs_KO_Female","WT female vs KO female","Monocytes","WT_Female","KO_Female",6,3,15,0.155580347792198,0.497857112935034
+"WT_Female_vs_KO_Female","WT female vs KO female","Monocytes / macrophages","WT_Female","KO_Female",6,3,4,0.245278116806773,0.502345490415443
+"WT_Female_vs_KO_Female","WT female vs KO female","NK cells","WT_Female","KO_Female",6,3,0,0.0281858021479074,0.225486417183259
+"WT_Female_vs_KO_Female","WT female vs KO female","Neutrophils","WT_Female","KO_Female",6,3,6,0.238592829316435,0.502345490415443
+"WT_Female_vs_KO_Female","WT female vs KO female","T cells","WT_Female","KO_Female",6,3,5,0.366156560194061,0.502345490415443
+"WT_Female_vs_KO_Female","WT female vs KO female","Vessels","WT_Female","KO_Female",6,3,9,1,1

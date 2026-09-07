@@ -1,4 +1,4 @@
-# Ravindu: Practice-in-Bioinformatics-(15 Credits)
+# Ravindu: Practice-in-Bioinformatics (15 Credits)
 June 10-August 30
 ## Project Background
 This summer project investigated FOLH1 as a context-dependent marker of prostate cancer biology. Using public transcriptomic and clinical datasets from TCGA, SU2C, and MSKCC, FOLH1 expression was compared across cancer types, normal and tumor tissues, primary and metastatic tumors, disease characteristics, and molecular biomarkers. The analysis also examined associations with disease-free survival and metastatic biopsy site.

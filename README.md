@@ -41,6 +41,20 @@ This project investigated whether FOLH1 and PIP5K1A act as context-dependent mar
 ### 6. Overall interpretation
 - Do FOLH1 and PIP5K1A show consistent associations across datasets, or are their relationships with tumor biology dependent on cancer type, disease state, molecular background, and immune context?
 
+## Key Findings
+
+- **FOLH1 expression** showed substantial variation across cancer types and was particularly relevant in prostate adenocarcinoma.
+
+- **FOLH1 expression** differed across prostate cancer disease states and molecular and clinicopathological characteristics.
+
+- **Higher FOLH1 expression** was associated with reduced activity of several immune-related pathways, including T-cell activation, cytotoxicity, checkpoint signalling, complement, and inflammatory signalling.
+
+- **PIP5K1A expression** was associated with immune-infiltration features and survival-related characteristics in pancreatic adenocarcinoma.
+
+- **PIP5K1A knockout** in experimental mouse tumours produced distinct transcriptional profiles, with differences in gene expression, pathway activity, and immune-related signatures.
+
+- Overall, the observed associations were dependent on **cancer type, disease state, molecular context, treatment, and experimental model**, supporting a context-dependent interpretation rather than a universal biomarker role.
+
 ## Types of Analysis Done
 ### Data Normalization and Transformation
 - **VST normalization:** Variance stabilizing transformation was used to reduce the dependence of variance on mean expression and make expression values more suitable for visualization and downstream analyses.
